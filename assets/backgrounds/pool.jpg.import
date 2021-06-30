@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/aqua.jpg-a64edf89895a3a011aa1a339500e2b02.stex"
+path="res://.import/pool.jpg-a767bf44c4abe65617ed1be182c5c0ed.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/aqua.jpg"
-dest_files=[ "res://.import/aqua.jpg-a64edf89895a3a011aa1a339500e2b02.stex" ]
+source_file="res://assets/backgrounds/pool.jpg"
+dest_files=[ "res://.import/pool.jpg-a767bf44c4abe65617ed1be182c5c0ed.stex" ]
 
 [params]
 
