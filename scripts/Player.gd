@@ -6,6 +6,7 @@ var health = 100
 var hurt
 var start
 signal bar
+signal stopwatch
 
 func _physics_process(delta):
 	if Input.is_action_pressed("left"):
@@ -45,5 +46,8 @@ func _on_hitbox_body_exited(body):
 
 func _on_Start_body_exited(body):
 	if !start:
-		print("Start!")
+		emit_signal("stopwatch")
 		start = true
+
+func _on_Goal_body_entered(body):
+	emit_signal("stopwatch")
