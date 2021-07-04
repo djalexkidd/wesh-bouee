@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var velocity = Vector2(0,0)
+var movedir = Vector2(0,0)
 var SPEED = 180 #Vitesse du joueur
 var health = 100
 var hurt
@@ -9,14 +9,12 @@ signal bar
 signal stopwatch
 
 func _physics_process(delta):
-	if Input.is_action_pressed("left"):
-		velocity.x = -SPEED
-	if Input.is_action_pressed("right"):
-		velocity.x = SPEED
-	if Input.is_action_pressed("up"):
-		velocity.y = -SPEED
-	if Input.is_action_pressed("down"):
-		velocity.y = SPEED
+	movedir.x = -Input.get_action_strength("left") + Input.get_action_strength("right")
+	movedir.y = +Input.get_action_strength("down") - Input.get_action_strength("up")
+	
+	movedir = movedir.clamped(1)
+	
+	var velocity = movedir * SPEED
 	
 	if Input.is_action_pressed("run"):
 		SPEED = 360
