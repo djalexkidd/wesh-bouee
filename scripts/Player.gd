@@ -37,6 +37,8 @@ func _physics_process(delta):
 		health -= 2
 		emit_signal("bar")
 		set_modulate(Color(1,0.3,0.3))
+		Input.start_joy_vibration(0,1,1,0.1)
+		Input.vibrate_handheld()
 		if health == 0:
 			get_tree().change_scene("res://scenes/TitleScreen.tscn")
 

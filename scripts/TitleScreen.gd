@@ -17,3 +17,9 @@ func load_highscore():
 	$HighScoreValue.text = "%0.3f" % game_data.highscore
 	Global.highscore = game_data.highscore
 	save_file.close()
+
+func _on_FullScreenButton_pressed():
+	if OS.window_fullscreen:
+		OS.window_fullscreen = false
+	else:
+		OS.window_fullscreen = true
