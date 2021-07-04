@@ -14,6 +14,10 @@ config/name="Wesh Bouée"
 run/main_scene="res://scenes/TitleScreen.tscn"
 config/icon="res://assets/player/bouee.png"
 
+[autoload]
+
+Global="*res://scripts/Global.gd"
+
 [display]
 
 window/size/width=1280

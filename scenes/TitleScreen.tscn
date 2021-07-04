@@ -52,6 +52,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="HighScore" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 384.0
+margin_top = -240.0
+margin_right = -580.0
+margin_bottom = -200.0
+custom_fonts/font = SubResource( 2 )
+text = "Meilleur temps :"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreValue" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 736.0
+margin_top = -240.0
+margin_right = -388.0
+margin_bottom = -200.0
+custom_fonts/font = SubResource( 2 )
+text = "999.999"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Button" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5

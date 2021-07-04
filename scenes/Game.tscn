@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/backgrounds/pool.jpg" type="Texture" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/tiles/tires_red.png" type="Texture" id=3]
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=4]
 [ext_resource path="res://assets/fonts/nokiafc22.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://scripts/Game.gd" type="Script" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 56, 56, 0, 56, 0, 0, 56, 0 )
@@ -41,11 +42,19 @@ bg_color = Color( 0.0705882, 0.768627, 0.0705882, 1 )
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 1, 0, 0, 1 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0, 0, 0.219608 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=7]
 size = 32
 font_data = ExtResource( 5 )
 
 [node name="Game" type="Node2D"]
+script = ExtResource( 6 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -124,12 +133,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Panel" type="Panel" parent="HUD"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -72.0
+margin_right = 184.0
+custom_styles/panel = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Time" type="Label" parent="HUD"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -40.0
-margin_right = 40.0
-custom_fonts/font = SubResource( 6 )
+margin_left = 8.0
+margin_top = -56.0
+margin_right = 32.0
+margin_bottom = -16.0
+custom_fonts/font = SubResource( 7 )
 text = "#"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -138,4 +159,5 @@ __meta__ = {
 [connection signal="body_exited" from="Start" to="Player" method="_on_Start_body_exited"]
 [connection signal="body_entered" from="Goal" to="Player" method="_on_Goal_body_entered"]
 [connection signal="bar" from="Player" to="HUD" method="_on_Player_bar"]
+[connection signal="stopwatch" from="Player" to="." method="_on_Player_stopwatch"]
 [connection signal="stopwatch" from="Player" to="HUD" method="_on_Player_stopwatch"]

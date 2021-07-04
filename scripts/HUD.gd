@@ -8,6 +8,9 @@ func _process(delta):
 		time += delta
 	$Time.text = "%0.3f" % time
 
+func get_time():
+	return time
+
 func _on_Player_bar():
 	$ProgressBar.value -= 1
 
