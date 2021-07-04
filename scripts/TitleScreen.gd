@@ -14,6 +14,6 @@ func load_highscore():
 	save_file.open("user://highscores.json", File.READ)
 	var json_str = save_file.get_as_text()
 	var game_data = JSON.parse(json_str).result
-	$HighScoreValue.text = str(game_data.highscore)
+	$HighScoreValue.text = "%0.3f" % game_data.highscore
 	Global.highscore = game_data.highscore
 	save_file.close()

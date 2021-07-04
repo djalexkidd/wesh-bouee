@@ -28,7 +28,7 @@ func _physics_process(delta):
 	$Sprite.rotate(0.01)
 	
 	if hurt:
-		health -= 1
+		health -= 2
 		emit_signal("bar")
 		set_modulate(Color(1,0.3,0.3))
 		if health == 0:
@@ -49,3 +49,4 @@ func _on_Start_body_exited(body):
 
 func _on_Goal_body_entered(body):
 	emit_signal("stopwatch")
+	get_tree().change_scene("res://scenes/Goal.tscn")

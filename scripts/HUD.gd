@@ -12,7 +12,7 @@ func get_time():
 	return time
 
 func _on_Player_bar():
-	$ProgressBar.value -= 1
+	$ProgressBar.value -= 2
 
 func _on_Player_stopwatch():
 	running = !running
