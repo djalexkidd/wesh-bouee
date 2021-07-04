@@ -116,6 +116,7 @@ position = Vector2( 8, 0 )
 shape = SubResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+joystickLeftPath = NodePath("../HUD/Joystick")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -164,16 +165,16 @@ __meta__ = {
 }
 
 [node name="Joystick" parent="HUD" instance=ExtResource( 7 )]
+vector_mode = 1
+dead_zone = 0.2
 visibility_mode = 1
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="HUD"]
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 1152, 592 )
+normal = ExtResource( 8 )
 action = "run"
 visibility_mode = 1
-
-[node name="Sprite" type="Sprite" parent="HUD/TouchScreenButton"]
-modulate = Color( 1, 1, 1, 0.498039 )
-position = Vector2( 1216, 656 )
-texture = ExtResource( 8 )
 
 [connection signal="body_exited" from="Start" to="Player" method="_on_Start_body_exited"]
 [connection signal="body_entered" from="Goal" to="Player" method="_on_Goal_body_entered"]

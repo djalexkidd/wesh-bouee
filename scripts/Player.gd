@@ -8,6 +8,9 @@ var start
 signal bar
 signal stopwatch
 
+export (NodePath) var joystickLeftPath
+onready var joystickLeft : Joystick = get_node(joystickLeftPath)
+
 func _physics_process(delta):
 	movedir.x = -Input.get_action_strength("left") + Input.get_action_strength("right")
 	movedir.y = +Input.get_action_strength("down") - Input.get_action_strength("up")
@@ -20,6 +23,9 @@ func _physics_process(delta):
 		SPEED = 360
 	else:
 		SPEED = 180
+	
+	if joystickLeft and joystickLeft.is_working:
+		var _velocity = move_and_slide(joystickLeft.output * SPEED)
 	
 	move_and_slide(velocity.normalized() * SPEED)
 	
