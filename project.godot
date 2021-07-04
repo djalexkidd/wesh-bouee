@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Control",
+"class": "Joystick",
+"language": "GDScript",
+"path": "res://Joystick/Joystick.gd"
+} ]
+_global_script_class_icons={
+"Joystick": ""
+}
+
 [application]
 
 config/name="Wesh Bouée"
