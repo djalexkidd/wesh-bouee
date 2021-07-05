@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/fonts/nokiafc22.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/TitleScreen.gd" type="Script" id=2]
@@ -17,7 +17,13 @@ font_data = ExtResource( 1 )
 size = 64
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="InputEventAction" id=5]
+action = "run"
+
+[sub_resource type="ShortCut" id=6]
+shortcut = SubResource( 5 )
+
+[sub_resource type="DynamicFont" id=7]
 size = 32
 font_data = ExtResource( 1 )
 
@@ -98,6 +104,7 @@ margin_bottom = 43.0
 custom_styles/focus = SubResource( 3 )
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
+shortcut = SubResource( 6 )
 text = "Jouer"
 flat = true
 __meta__ = {
@@ -112,7 +119,7 @@ anchor_bottom = 1.0
 margin_left = -232.0
 margin_top = -46.0
 custom_styles/focus = SubResource( 3 )
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
 text = "Plein écran"
 flat = true
