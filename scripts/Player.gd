@@ -27,9 +27,7 @@ func _physics_process(delta):
 	if joystickLeft and joystickLeft.is_working:
 		var _velocity = move_and_slide(joystickLeft.output * SPEED)
 	
-	move_and_slide(velocity.normalized() * SPEED)
-	
-	velocity = Vector2(0,0)
+	velocity = move_and_slide(velocity)
 
 	$Sprite.rotate(0.01)
 	

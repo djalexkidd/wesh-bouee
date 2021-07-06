@@ -165,7 +165,6 @@ __meta__ = {
 }
 
 [node name="Joystick" parent="HUD" instance=ExtResource( 7 )]
-vector_mode = 1
 dead_zone = 0.2
 visibility_mode = 1
 
