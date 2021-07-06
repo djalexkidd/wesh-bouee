@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/race.mp3-a53a1537657552477a380883a5e77663.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/race.mp3"
+dest_files=[ "res://.import/race.mp3-a53a1537657552477a380883a5e77663.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

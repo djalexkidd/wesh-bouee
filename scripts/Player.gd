@@ -40,19 +40,19 @@ func _physics_process(delta):
 		if health == 0:
 			get_tree().change_scene("res://scenes/TitleScreen.tscn")
 
-func _on_hitbox_body_entered(body):
+func _on_hitbox_body_entered(_body):
 	if start:
 		hurt = true
 
-func _on_hitbox_body_exited(body):
+func _on_hitbox_body_exited(_body):
 	hurt = false
 	set_modulate(Color(1,1,1))
 
-func _on_Start_body_exited(body):
+func _on_Start_body_exited(_body):
 	if !start:
 		emit_signal("stopwatch")
 		start = true
 
-func _on_Goal_body_entered(body):
+func _on_Goal_body_entered(_body):
 	emit_signal("stopwatch")
 	get_tree().change_scene("res://scenes/Goal.tscn")
