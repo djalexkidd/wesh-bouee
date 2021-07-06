@@ -1,0 +1,175 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/backgrounds/pool.jpg" type="Texture" id=1]
+[ext_resource path="res://assets/tiles/tires_red.png" type="Texture" id=3]
+[ext_resource path="res://scripts/HUD.gd" type="Script" id=4]
+[ext_resource path="res://assets/fonts/nokiafc22.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://scripts/Game.gd" type="Script" id=6]
+[ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Joystick/A_button.png" type="Texture" id=8]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 56, 56, 0, 56, 0, 0, 56, 0 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "tires_red.png 0"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 56, 56 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 232, 224 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.0705882, 0.768627, 0.0705882, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0, 0, 0.219608 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+font_data = ExtResource( 5 )
+
+[node name="GameNet" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 94, 94 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1504, 1504 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 2 )
+cell_size = Vector2( 56, 56 )
+cell_custom_transform = Transform2D( 56, 0, 0, 56, 0, 0 )
+collision_layer = 2
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( -262149, 0, 0, -262148, 0, 0, -262147, 0, 0, -262146, 0, 0, -262145, 0, 0, -327680, 0, 0, -327679, 0, 0, -327678, 0, 0, -327677, 0, 0, -327676, 0, 0, -327675, 0, 0, -327674, 0, 0, -327673, 0, 0, -327672, 0, 0, -196613, 0, 0, -262135, 0, 0, -131077, 0, 0, -196598, 0, 0, -65541, 0, 0, -131061, 0, 0, -5, 0, 0, -65524, 0, 0, 65531, 0, 0, 13, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 131067, 0, 0, 65550, 0, 0, 65558, 0, 0, 65565, 0, 0, 196603, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 0, 0, 131092, 0, 0, 131093, 0, 0, 131102, 0, 0, 131103, 0, 0, 131104, 0, 0, 131105, 0, 0, 131106, 0, 0, 131107, 0, 0, 131108, 0, 0, 262139, 0, 0, 196644, 0, 0, 327675, 0, 0, 327676, 0, 0, 327677, 0, 0, 327678, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262180, 0, 0, 327689, 0, 0, 327705, 0, 0, 327706, 0, 0, 327716, 0, 0, 393226, 0, 0, 393241, 0, 0, 393242, 0, 0, 393252, 0, 0, 458763, 0, 0, 458777, 0, 0, 458778, 0, 0, 458788, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 524311, 0, 0, 524312, 0, 0, 524313, 0, 0, 524314, 0, 0, 524315, 0, 0, 524316, 0, 0, 524317, 0, 0, 524318, 0, 0, 524319, 0, 0, 524324, 0, 0, 589851, 0, 0, 589860, 0, 0, 655387, 0, 0, 655396, 0, 0, 720923, 0, 0, 720932, 0, 0, 786459, 0, 0, 786468, 0, 0, 851995, 0, 0, 852000, 0, 0, 852001, 0, 0, 852002, 0, 0, 852003, 0, 0, 852004, 0, 0, 917531, 0, 0, 917540, 0, 0, 983067, 0, 0, 983076, 0, 0, 1048603, 0, 0, 1048612, 0, 0, 1114139, 0, 0, 1114148, 0, 0, 1179675, 0, 0, 1179684, 0, 0, 1245211, 0, 0, 1245220, 0, 0, 1245221, 0, 0, 1245222, 0, 0, 1245223, 0, 0, 1245224, 0, 0, 1245225, 0, 0, 1245226, 0, 0, 1245227, 0, 0, 1245228, 0, 0, 1245229, 0, 0, 1245230, 0, 0, 1245231, 0, 0, 1245232, 0, 0, 1245233, 0, 0, 1310747, 0, 0, 1310769, 0, 0, 1376283, 0, 0, 1376305, 0, 0, 1441819, 0, 0, 1441841, 0, 0, 1507355, 0, 0, 1507377, 0, 0, 1572891, 0, 0, 1572895, 0, 0, 1572913, 0, 0, 1638427, 0, 0, 1638430, 0, 0, 1638449, 0, 0, 1703963, 0, 0, 1703965, 0, 0, 1703985, 0, 0, 1769499, 0, 0, 1769500, 0, 0, 1769521, 0, 0, 1835035, 0, 0, 1835036, 0, 0, 1835037, 0, 0, 1835038, 0, 0, 1835039, 0, 0, 1835040, 0, 0, 1835041, 0, 0, 1835042, 0, 0, 1835043, 0, 0, 1835044, 0, 0, 1835045, 0, 0, 1835046, 0, 0, 1835047, 0, 0, 1835048, 0, 0, 1835049, 0, 0, 1835050, 0, 0, 1835051, 0, 0, 1835052, 0, 0, 1835053, 0, 0, 1835054, 0, 0, 1835055, 0, 0, 1835056, 0, 0, 1835057, 0, 0 )
+
+[node name="Start" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 5
+
+[node name="ColorRect" type="ColorRect" parent="Start"]
+margin_left = -224.0
+margin_top = -224.0
+margin_right = 240.0
+margin_bottom = 224.0
+color = Color( 0.968627, 1, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start"]
+position = Vector2( 8, 0 )
+shape = SubResource( 3 )
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2( 2504, 1344 )
+collision_layer = 4
+collision_mask = 5
+
+[node name="ColorRect" type="ColorRect" parent="Goal"]
+margin_left = -224.0
+margin_top = -224.0
+margin_right = 240.0
+margin_bottom = 224.0
+color = Color( 0.32549, 0.878431, 0.172549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+position = Vector2( 8, 0 )
+shape = SubResource( 3 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource( 4 )
+
+[node name="ProgressBar" type="ProgressBar" parent="HUD"]
+anchor_right = 1.0
+margin_bottom = 14.0
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
+step = 1.0
+value = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="HUD"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -92.0
+margin_top = -72.0
+margin_right = 92.0
+custom_styles/panel = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="HUD"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -80.0
+margin_top = -56.0
+margin_right = -56.0
+margin_bottom = -16.0
+custom_fonts/font = SubResource( 7 )
+text = "#"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Joystick" parent="HUD" instance=ExtResource( 7 )]
+vector_mode = 1
+dead_zone = 0.2
+visibility_mode = 1
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="HUD"]
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 1152, 592 )
+normal = ExtResource( 8 )
+action = "run"
+visibility_mode = 1
+
+[node name="Spawners" type="Position2D" parent="."]
+
+[node name="Spawn" type="Position2D" parent="Spawners"]
+
+[node name="Spawn2" type="Position2D" parent="Spawners"]

@@ -3,7 +3,7 @@ extends Node
 var username = ""
 
 var main = "res://scenes/NetMain.tscn"
-var map = "res://scenes/Map.tscn"
+var map = "res://scenes/GameNet.tscn"
 var player = "res://scenes/PlayerNet.tscn"
 var chat = load("res://networking/Chat.tscn").instance()
 var lobby = "res://Lobby.tscn"
@@ -56,7 +56,7 @@ func get_spawn_location():
 func spawn_player(id):
 	var player_instance = load(player).instance()
 	player_instance.name = str(id)
-	get_node("/root/Map").add_child(player_instance)
+	get_node("/root/GameNet").add_child(player_instance)
 	player_instance.global_transform = spawn.global_transform
 	
 	player_instance.set_network_master(id)
