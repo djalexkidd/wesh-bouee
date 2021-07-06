@@ -22,6 +22,7 @@ _global_script_class_icons={
 
 config/name="Wesh Bouée"
 run/main_scene="res://scenes/TitleScreen.tscn"
+boot_splash/image="res://assets/splash.png"
 config/icon="res://assets/player/bouee.png"
 
 [autoload]
