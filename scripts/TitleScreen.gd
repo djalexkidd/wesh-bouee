@@ -23,3 +23,6 @@ func _on_FullScreenButton_pressed():
 		OS.window_fullscreen = false
 	else:
 		OS.window_fullscreen = true
+
+func _on_NetworkButton_pressed():
+	get_tree().change_scene("res://scenes/NetMain.tscn")

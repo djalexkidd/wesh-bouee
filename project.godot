@@ -27,6 +27,7 @@ config/icon="res://assets/player/bouee.png"
 [autoload]
 
 Global="*res://scripts/Global.gd"
+Network="*res://scripts/Network.gd"
 
 [display]
 
