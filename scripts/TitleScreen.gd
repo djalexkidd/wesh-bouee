@@ -3,8 +3,11 @@ extends Control
 func _ready():
 	load_highscore()
 
-func _on_Button_pressed():
+func _on_StartButton_pressed():
 	get_tree().change_scene("res://scenes/LevelSelect.tscn")
+
+func _on_QuitButton_pressed():
+	get_tree().quit()
 
 func load_highscore():
 	var save_file = File.new()
@@ -14,7 +17,6 @@ func load_highscore():
 	save_file.open("user://highscores.json", File.READ)
 	var json_str = save_file.get_as_text()
 	var game_data = JSON.parse(json_str).result
-	$HighScoreValue.text = "%0.3f" % game_data.highscore
 	Global.highscore = game_data.highscore
 	save_file.close()
 
