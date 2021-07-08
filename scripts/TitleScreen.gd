@@ -4,7 +4,7 @@ func _ready():
 	load_highscore()
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://scenes/Game.tscn")
+	get_tree().change_scene("res://scenes/LevelSelect.tscn")
 
 func load_highscore():
 	var save_file = File.new()
