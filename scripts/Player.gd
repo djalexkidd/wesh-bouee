@@ -38,7 +38,7 @@ func _physics_process(delta):
 		Input.start_joy_vibration(0,1,1,0.1)
 		Input.vibrate_handheld()
 		if health == 0:
-			get_tree().change_scene("res://scenes/TitleScreen.tscn")
+			get_tree().change_scene("res://scenes/GameOver.tscn")
 
 func _on_hitbox_body_entered(_body):
 	if start:
