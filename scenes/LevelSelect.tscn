@@ -107,6 +107,7 @@ margin_bottom = 43.0
 custom_styles/focus = SubResource( 3 )
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
+disabled = true
 text = "Niveau 2"
 flat = true
 __meta__ = {

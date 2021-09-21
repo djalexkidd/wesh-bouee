@@ -12,7 +12,7 @@ func _on_Level1_mouse_entered():
 	$HighScoreValue.text = "%0.3f" % Global.highscore
 
 func _on_Level2_mouse_entered():
-	$HighScoreValue.text = "test"
+	$HighScoreValue.text = "999.999"
 
 func _on_ReturnButton_pressed():
 	get_tree().change_scene("res://scenes/TitleScreen.tscn")
