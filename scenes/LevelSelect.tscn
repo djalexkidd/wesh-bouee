@@ -132,5 +132,4 @@ __meta__ = {
 [connection signal="pressed" from="Level1" to="." method="_on_Level1_pressed"]
 [connection signal="mouse_entered" from="Level2" to="." method="_on_Level2_mouse_entered"]
 [connection signal="pressed" from="Level2" to="." method="_on_Level2_pressed"]
-[connection signal="mouse_entered" from="ReturnButton" to="." method="_on_Level1_mouse_entered"]
 [connection signal="pressed" from="ReturnButton" to="." method="_on_ReturnButton_pressed"]
