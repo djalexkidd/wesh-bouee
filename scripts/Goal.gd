@@ -2,8 +2,8 @@ extends Control
 
 func _ready():
 	$TimeValue.text = "%0.3f" % Global.lasttime #Affiche le temps actuel
-	$HighScoreValue.text = "%0.3f" % Global.highscore #Affiche le record
-	if Global.lasttime == Global.highscore: #Affiche "Nouveau record" si le précédent est battu
+	$HighScoreValue.text = "%0.3f" % Global.get_time() #Affiche le record
+	if Global.lasttime == Global.get_time(): #Affiche "Nouveau record" si le précédent est battu
 		$NewHighScore.show()
 
 func _on_RestartButton_pressed(): #Redémarre le niveau

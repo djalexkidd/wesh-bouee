@@ -19,7 +19,10 @@ func load_highscore():
 	save_file.open("user://highscores.json", File.READ) #Ouvre le fichier
 	var json_str = save_file.get_as_text()
 	var game_data = JSON.parse(json_str).result
-	Global.highscore = game_data.highscore #Met la première ligne du fichier dans une variable "highscore"
+	Global.level1_time = game_data.level1_time #Met la 1ère ligne du fichier dans une variable "level1_time"
+	Global.level2_time = game_data.level2_time #Met la 2ème ligne du fichier dans une variable "level2_time"
+	Global.level3_time = game_data.level3_time #Met la 3ème ligne du fichier dans une variable "level3_time"
+	Global.level4_time = game_data.level4_time #Met la 4ème ligne du fichier dans une variable "level4_time"
 	save_file.close() #Ferme le fichier
 
 #Active/Désactive le plein écran

@@ -9,10 +9,10 @@ func _on_Level2_pressed():
 	Global.replay() #Charge le niveau
 
 func _on_Level1_mouse_entered():
-	$HighScoreValue.text = "%0.3f" % Global.highscore
+	$HighScoreValue.text = "%0.3f" % Global.level1_time
 
 func _on_Level2_mouse_entered():
-	$HighScoreValue.text = "999.999"
+	$HighScoreValue.text = "%0.3f" % Global.level2_time
 
 func _on_ReturnButton_pressed():
 	get_tree().change_scene("res://scenes/TitleScreen.tscn")
