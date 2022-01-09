@@ -5,6 +5,7 @@ var SPEED = 180 #Vitesse du joueur
 var health = 100 #Santé du joueur
 var hurt
 var start
+var boosted
 signal bar
 signal stopwatch
 
@@ -21,9 +22,15 @@ func _physics_process(delta):
 	
 	#Permet de changer la vitesse du joueur si le bouton A est maintenu
 	if Input.is_action_pressed("run"):
-		SPEED = 360
+		if !boosted:
+			SPEED = 360
+		else:
+			SPEED = 720
 	else:
-		SPEED = 180
+		if !boosted:
+			SPEED = 180
+		else:
+			SPEED = 720
 	
 	if joystickLeft and joystickLeft.is_working:
 		var _velocity = move_and_slide(joystickLeft.output * SPEED)
@@ -57,3 +64,10 @@ func _on_Start_body_exited(_body): #Début de partie
 func _on_Goal_body_entered(_body): #Fin de partie
 	emit_signal("stopwatch") #Arrête le chronomètre
 	get_tree().change_scene("res://scenes/Goal.tscn") #Affiche l'écran de victoire
+
+func _on_Boost_body_entered(body):
+	boosted = true
+	$BoostTimer.start()
+
+func _on_BoostTimer_timeout():
+	boosted = false
