@@ -6,6 +6,7 @@ var health = 100 #Santé du joueur
 var hurt
 var start
 var boosted
+var rotate_speed = 0.01
 signal bar
 signal stopwatch
 
@@ -37,7 +38,7 @@ func _physics_process(delta):
 	
 	velocity = move_and_slide(velocity)
 
-	$Sprite.rotate(0.01) #Fait tourner le sprite du joueur
+	$Sprite.rotate(rotate_speed) #Fait tourner le sprite du joueur
 	
 	if hurt:
 		health -= 2
@@ -63,7 +64,14 @@ func _on_Start_body_exited(_body): #Début de partie
 
 func _on_Goal_body_entered(_body): #Fin de partie
 	emit_signal("stopwatch") #Arrête le chronomètre
-	get_tree().change_scene("res://scenes/Goal.tscn") #Affiche l'écran de victoire
+	
+	var tween = get_node("Tween")
+	var destination = get_node("../Goal")
+	tween.interpolate_property(self, "position", Vector2(position.x, position.y), Vector2(destination.position.x, destination.position.y), 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween.start()
+	
+	rotate_speed = 0.10
+	$FinishTimer.start()
 
 func _on_Boost_body_entered(body):
 	boosted = true
@@ -71,3 +79,6 @@ func _on_Boost_body_entered(body):
 
 func _on_BoostTimer_timeout():
 	boosted = false
+
+func _on_FinishTimer_timeout():
+	get_tree().change_scene("res://scenes/Goal.tscn") #Affiche l'écran de victoire

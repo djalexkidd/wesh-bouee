@@ -25,10 +25,17 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 shape = SubResource( 1 )
 
+[node name="Tween" type="Tween" parent="."]
+
 [node name="BoostTimer" type="Timer" parent="."]
 wait_time = 3.0
+one_shot = true
+
+[node name="FinishTimer" type="Timer" parent="."]
+wait_time = 4.35
 one_shot = true
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="hitbox" to="." method="_on_hitbox_body_exited"]
 [connection signal="timeout" from="BoostTimer" to="." method="_on_BoostTimer_timeout"]
+[connection signal="timeout" from="FinishTimer" to="." method="_on_FinishTimer_timeout"]
