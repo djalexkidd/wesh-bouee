@@ -15,8 +15,10 @@ func save_highscore():
 
 func _on_Player_stopwatch():
 	if $HUD.time > 1 and $HUD.time < Global.level1_time:
+		GlobalScene.foo()
 		Global.lasttime = $HUD.time
 		Global.level1_time = $HUD.get_time()
 		save_highscore()
 	elif $HUD.time > 1 and not $HUD.time < Global.level1_time:
+		GlobalScene.foo()
 		Global.lasttime = $HUD.time

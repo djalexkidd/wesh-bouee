@@ -8,6 +8,8 @@ func _ready():
 
 func _on_RestartButton_pressed(): #Redémarre le niveau
 	Global.replay()
+	GlobalScene.bar()
 
 func _on_QuitButton_pressed(): #Retourne à la sélection du niveau
 	get_tree().change_scene("res://scenes/LevelSelect.tscn")
+	GlobalScene.bar()
