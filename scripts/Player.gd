@@ -7,6 +7,7 @@ var hurt
 var start
 var boosted
 var rotate_speed = 0.01
+var control = true
 signal bar
 signal stopwatch
 
@@ -36,7 +37,8 @@ func _physics_process(delta):
 	if joystickLeft and joystickLeft.is_working:
 		var _velocity = move_and_slide(joystickLeft.output * SPEED)
 	
-	velocity = move_and_slide(velocity)
+	if control:
+		velocity = move_and_slide(velocity)
 
 	$Sprite.rotate(rotate_speed) #Fait tourner le sprite du joueur
 	
@@ -71,6 +73,7 @@ func _on_Goal_body_entered(_body): #Fin de partie
 	tween.start()
 	
 	rotate_speed = 0.10
+	control = false
 	$FinishTimer.start()
 
 func _on_Boost_body_entered(body):
