@@ -77,15 +77,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Level1" type="Button" parent="."]
+[node name="LevelsContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -170.0
-margin_top = -171.0
-margin_right = 170.0
-margin_bottom = -85.0
+margin_left = -178.0
+margin_top = -187.0
+margin_right = 178.0
+margin_bottom = 187.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level1" type="Button" parent="LevelsContainer"]
+margin_right = 356.0
+margin_bottom = 86.0
 custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/focus = SubResource( 3 )
@@ -95,15 +103,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Level2" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -178.0
-margin_top = -43.0
-margin_right = 178.0
-margin_bottom = 43.0
+[node name="Level2" type="Button" parent="LevelsContainer"]
+margin_top = 96.0
+margin_right = 356.0
+margin_bottom = 182.0
 custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/focus = SubResource( 3 )
@@ -113,19 +116,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Level3" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -178.0
-margin_top = 85.0
-margin_right = 178.0
-margin_bottom = 171.0
+[node name="Level3" type="Button" parent="LevelsContainer"]
+margin_top = 192.0
+margin_right = 356.0
+margin_bottom = 278.0
 custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/focus = SubResource( 3 )
 text = "Niveau 3"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level4" type="Button" parent="LevelsContainer"]
+margin_top = 288.0
+margin_right = 356.0
+margin_bottom = 374.0
+custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/focus = SubResource( 3 )
+text = "Niveau 4"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -145,10 +156,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="mouse_entered" from="Level1" to="." method="_on_Level1_mouse_entered"]
-[connection signal="pressed" from="Level1" to="." method="_on_Level1_pressed"]
-[connection signal="mouse_entered" from="Level2" to="." method="_on_Level2_mouse_entered"]
-[connection signal="pressed" from="Level2" to="." method="_on_Level2_pressed"]
-[connection signal="mouse_entered" from="Level3" to="." method="_on_Level3_mouse_entered"]
-[connection signal="pressed" from="Level3" to="." method="_on_Level3_pressed"]
+[connection signal="mouse_entered" from="LevelsContainer/Level1" to="." method="_on_Level1_mouse_entered"]
+[connection signal="pressed" from="LevelsContainer/Level1" to="." method="_on_Level1_pressed"]
+[connection signal="mouse_entered" from="LevelsContainer/Level2" to="." method="_on_Level2_mouse_entered"]
+[connection signal="pressed" from="LevelsContainer/Level2" to="." method="_on_Level2_pressed"]
+[connection signal="mouse_entered" from="LevelsContainer/Level3" to="." method="_on_Level3_mouse_entered"]
+[connection signal="pressed" from="LevelsContainer/Level3" to="." method="_on_Level3_pressed"]
+[connection signal="mouse_entered" from="LevelsContainer/Level4" to="." method="_on_Level4_mouse_entered"]
+[connection signal="pressed" from="LevelsContainer/Level4" to="." method="_on_Level4_pressed"]
 [connection signal="pressed" from="ReturnButton" to="." method="_on_ReturnButton_pressed"]

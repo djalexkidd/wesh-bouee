@@ -15,6 +15,8 @@ func replay(): #Fonction pour faire changer/redémarrer le niveau
 			get_tree().change_scene("res://scenes/levels/Level2.tscn")
 		3: #Niveau 3
 			get_tree().change_scene("res://scenes/levels/Level3.tscn")
+		4: #Niveau 4
+			get_tree().change_scene("res://scenes/levels/Level4.tscn")
 
 func get_time():
 	match level:
