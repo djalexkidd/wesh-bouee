@@ -2,6 +2,9 @@ extends Control
 
 func _ready():
 	load_highscore()
+	
+	if OS.get_name() == "Android":
+		$FullScreenButton.queue_free()
 
 func _on_StartButton_pressed(): #Bouton pour démarrer une partie
 	get_tree().change_scene("res://scenes/LevelSelect.tscn")
