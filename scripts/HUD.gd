@@ -3,6 +3,11 @@ extends CanvasLayer
 var time = 0
 var running
 
+func _ready():
+	if Input.get_joy_name(0):
+		$Joystick.hide()
+		$TouchScreenButton.hide()
+
 func _process(delta):
 	if running:
 		time += delta

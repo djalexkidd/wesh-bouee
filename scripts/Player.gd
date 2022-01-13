@@ -34,7 +34,13 @@ func _physics_process(delta):
 		else:
 			SPEED = 720
 	
-	if joystickLeft and joystickLeft.is_working:
+	if Input.is_action_just_pressed("restart"):
+		Global.replay()
+	
+	if Input.is_action_just_pressed("exit"):
+		get_tree().change_scene("res://scenes/LevelSelect.tscn")
+	
+	if joystickLeft and joystickLeft.is_working and control:
 		var _velocity = move_and_slide(joystickLeft.output * SPEED)
 	
 	if control:
