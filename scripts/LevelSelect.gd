@@ -9,11 +9,15 @@ func _on_Level2_pressed():
 	Global.replay() #Charge le niveau
 
 func _on_Level3_pressed():
-	Global.level = 3 #Change le niveau actuel vers le niveau 2
+	Global.level = 3 #Change le niveau actuel vers le niveau 3
 	Global.replay() #Charge le niveau
 
 func _on_Level4_pressed():
-	Global.level = 4 #Change le niveau actuel vers le niveau 2
+	Global.level = 4 #Change le niveau actuel vers le niveau 4
+	Global.replay() #Charge le niveau
+
+func _on_Level5_pressed():
+	Global.level = 5 #Change le niveau actuel vers le niveau 5
 	Global.replay() #Charge le niveau
 
 func _on_Level1_mouse_entered():
@@ -27,6 +31,9 @@ func _on_Level3_mouse_entered():
 
 func _on_Level4_mouse_entered():
 	$HighScoreValue.text = "%0.3f" % Global.level4_time
+
+func _on_Level5_mouse_entered():
+	$HighScoreValue.text = "%0.3f" % Global.level5_time
 
 func _on_ReturnButton_pressed():
 	get_tree().change_scene("res://scenes/TitleScreen.tscn")

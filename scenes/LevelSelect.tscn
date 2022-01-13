@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/fonts/nokiafc22.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/LevelSelect.gd" type="Script" id=2]
+[ext_resource path="res://themes/LevelSelect_button.tres" type="Theme" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -77,67 +78,136 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LevelsContainer" type="VBoxContainer" parent="."]
+[node name="LevelsContainer" type="GridContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -178.0
-margin_top = -187.0
-margin_right = 178.0
-margin_bottom = 187.0
-custom_constants/separation = 10
+margin_left = -622.0
+margin_top = -90.0
+margin_right = 622.0
+margin_bottom = 90.0
+theme = ExtResource( 3 )
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Level1" type="Button" parent="LevelsContainer"]
-margin_right = 356.0
-margin_bottom = 86.0
+margin_right = 296.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/focus = SubResource( 3 )
-text = "Niveau 1"
-flat = true
+text = "1-1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Level2" type="Button" parent="LevelsContainer"]
-margin_top = 96.0
-margin_right = 356.0
-margin_bottom = 182.0
+margin_left = 316.0
+margin_right = 612.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/focus = SubResource( 3 )
-text = "Niveau 2"
-flat = true
+text = "1-2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Level3" type="Button" parent="LevelsContainer"]
-margin_top = 192.0
-margin_right = 356.0
-margin_bottom = 278.0
+margin_left = 632.0
+margin_right = 928.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/focus = SubResource( 3 )
-text = "Niveau 3"
-flat = true
+text = "1-3"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Level4" type="Button" parent="LevelsContainer"]
-margin_top = 288.0
-margin_right = 356.0
-margin_bottom = 374.0
+margin_left = 948.0
+margin_right = 1244.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/focus = SubResource( 3 )
-text = "Niveau 4"
-flat = true
+text = "1-4"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level5" type="Button" parent="LevelsContainer"]
+margin_top = 100.0
+margin_right = 296.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/focus = SubResource( 3 )
+text = "1-5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level6" type="Button" parent="LevelsContainer"]
+margin_left = 316.0
+margin_top = 100.0
+margin_right = 612.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/focus = SubResource( 3 )
+disabled = true
+text = "1-6"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level7" type="Button" parent="LevelsContainer"]
+margin_left = 632.0
+margin_top = 100.0
+margin_right = 928.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/focus = SubResource( 3 )
+disabled = true
+text = "1-7"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level8" type="Button" parent="LevelsContainer"]
+margin_left = 948.0
+margin_top = 100.0
+margin_right = 1244.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/focus = SubResource( 3 )
+disabled = true
+text = "1-8"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -164,4 +234,6 @@ __meta__ = {
 [connection signal="pressed" from="LevelsContainer/Level3" to="." method="_on_Level3_pressed"]
 [connection signal="mouse_entered" from="LevelsContainer/Level4" to="." method="_on_Level4_mouse_entered"]
 [connection signal="pressed" from="LevelsContainer/Level4" to="." method="_on_Level4_pressed"]
+[connection signal="mouse_entered" from="LevelsContainer/Level5" to="." method="_on_Level5_mouse_entered"]
+[connection signal="pressed" from="LevelsContainer/Level5" to="." method="_on_Level5_pressed"]
 [connection signal="pressed" from="ReturnButton" to="." method="_on_ReturnButton_pressed"]
