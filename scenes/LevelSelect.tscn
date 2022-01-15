@@ -42,7 +42,7 @@ __meta__ = {
 anchor_right = 1.0
 margin_bottom = 80.0
 custom_fonts/font = SubResource( 1 )
-text = "Sélectionnez un niveau"
+text = "LEVEL_SELECT"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -57,7 +57,7 @@ margin_top = -112.0
 margin_right = -580.0
 margin_bottom = -72.0
 custom_fonts/font = SubResource( 2 )
-text = "Meilleur temps :"
+text = "LEVEL_BEST"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -215,12 +215,13 @@ __meta__ = {
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -46.0
-margin_right = 144.0
+margin_right = 252.0
 custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
 custom_fonts/font = SubResource( 5 )
 custom_styles/focus = SubResource( 3 )
-text = "Retour"
+text = "LEVEL_BACK"
 flat = true
+align = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }

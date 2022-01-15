@@ -1,0 +1,12 @@
+,fr,en
+TITLE_PLAY,Jouer,Play
+TITLE_QUIT,Quitter,Quit
+LEVEL_SELECT,Sélectionnez un niveau,Select a level
+LEVEL_NEXT,Niveau suivant,Next level
+LEVEL_RESTART,Recommencer,Retry
+LEVEL_BACK,Retour,Back
+LEVEL_FINISHED,Terminé !,Goal !
+LEVEL_TIME,Temps :,Time :
+LEVEL_BEST,Meilleur temps :,Personnal best :
+LEVEL_NEWBEST,Nouveau record !,New record !
+SETTINGS_FULLSCREEN,Plein écran,Full screen
