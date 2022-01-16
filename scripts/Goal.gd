@@ -9,6 +9,7 @@ func _ready():
 func _on_NextButton_pressed(): #Démarre le niveau suivant
 	Global.level += 1
 	Global.replay()
+	GlobalScene.bar()
 
 func _on_RestartButton_pressed(): #Redémarre le niveau
 	Global.replay()
