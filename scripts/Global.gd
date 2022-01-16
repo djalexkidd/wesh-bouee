@@ -7,6 +7,7 @@ var level3_time = 999.999 #Record Niveau 3
 var level4_time = 999.999 #Record Niveau 4
 var level5_time = 999.999 #Record Niveau 5
 var level6_time = 999.999 #Record Niveau 6
+var level7_time = 999.999 #Record Niveau 7
 var level = 0 #Niveau actuel
 
 func replay(): #Fonction pour faire changer/redémarrer le niveau
@@ -23,6 +24,8 @@ func replay(): #Fonction pour faire changer/redémarrer le niveau
 			get_tree().change_scene("res://scenes/levels/Level5.tscn")
 		6: #Niveau 6
 			get_tree().change_scene("res://scenes/levels/Level6.tscn")
+		7: #Niveau 7
+			get_tree().change_scene("res://scenes/levels/Level7.tscn")
 
 func get_time():
 	match level:
@@ -38,3 +41,5 @@ func get_time():
 			return level5_time
 		6:
 			return level6_time
+		7:
+			return level7_time

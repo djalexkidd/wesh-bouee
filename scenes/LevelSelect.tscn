@@ -189,7 +189,6 @@ size_flags_vertical = 3
 custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/focus = SubResource( 3 )
-disabled = true
 text = "1-7"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -238,4 +237,6 @@ __meta__ = {
 [connection signal="pressed" from="LevelsContainer/Level5" to="." method="_on_Level5_pressed"]
 [connection signal="mouse_entered" from="LevelsContainer/Level6" to="." method="_on_Level6_mouse_entered"]
 [connection signal="pressed" from="LevelsContainer/Level6" to="." method="_on_Level6_pressed"]
+[connection signal="mouse_entered" from="LevelsContainer/Level7" to="." method="_on_Level7_mouse_entered"]
+[connection signal="pressed" from="LevelsContainer/Level7" to="." method="_on_Level7_pressed"]
 [connection signal="pressed" from="ReturnButton" to="." method="_on_ReturnButton_pressed"]
