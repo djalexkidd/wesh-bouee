@@ -28,6 +28,10 @@ func _on_Level7_pressed():
 	Global.level = 7 #Change le niveau actuel vers le niveau 7
 	Global.replay() #Charge le niveau
 
+func _on_Level8_pressed():
+	Global.level = 8 #Change le niveau actuel vers le niveau 8
+	Global.replay() #Charge le niveau
+
 func _on_Level1_mouse_entered():
 	$HighScoreValue.text = "%0.3f" % Global.level1_time
 
@@ -49,13 +53,15 @@ func _on_Level6_mouse_entered():
 func _on_Level7_mouse_entered():
 	$HighScoreValue.text = "%0.3f" % Global.level7_time
 
+func _on_Level8_mouse_entered():
+	$HighScoreValue.text = "%0.3f" % Global.level8_time
+
 func _on_ReturnButton_pressed():
 	get_tree().change_scene("res://scenes/TitleScreen.tscn")
 
 func _on_NextWorldButton_pressed():
 	Global.world += 1
 	RefreshWorld()
-	
 
 func _on_PreviousWorldButton_pressed():
 	Global.world -= 1

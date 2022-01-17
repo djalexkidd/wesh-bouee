@@ -3,13 +3,13 @@ extends Node2D
 func save_highscore():
 	var data = {
 		"level1_time" : Global.level1_time,
-		"level2_time" : $HUD.get_time(),
+		"level2_time" : Global.level2_time,
 		"level3_time" : Global.level3_time,
 		"level4_time" : Global.level4_time,
 		"level5_time" : Global.level5_time,
 		"level6_time" : Global.level6_time,
 		"level7_time" : Global.level7_time,
-		"level8_time" : Global.level8_time,
+		"level8_time" : $HUD.get_time(),
 	}
 	
 	var save_file = File.new()
@@ -18,11 +18,11 @@ func save_highscore():
 	save_file.close()
 
 func _on_Player_stopwatch():
-	if $HUD.time > 1 and $HUD.time < Global.level2_time:
+	if $HUD.time > 1 and $HUD.time < Global.level8_time:
 		GlobalScene.foo()
 		Global.lasttime = $HUD.time
-		Global.level2_time = $HUD.get_time()
+		Global.level8_time = $HUD.get_time()
 		save_highscore()
-	elif $HUD.time > 1 and not $HUD.time < Global.level2_time:
+	elif $HUD.time > 1 and not $HUD.time < Global.level8_time:
 		GlobalScene.foo()
 		Global.lasttime = $HUD.time
