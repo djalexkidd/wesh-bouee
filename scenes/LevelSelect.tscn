@@ -225,6 +225,41 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="NextWorldButton" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 1088.0
+margin_top = -208.0
+margin_right = 1244.0
+margin_bottom = -162.0
+custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+custom_styles/focus = SubResource( 3 )
+text = "Suivant"
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PreviousWorldButton" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 64.0
+margin_top = -208.0
+margin_right = 276.0
+margin_bottom = -162.0
+custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+custom_styles/focus = SubResource( 3 )
+disabled = true
+text = "Précédent"
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="mouse_entered" from="LevelsContainer/Level1" to="." method="_on_Level1_mouse_entered"]
 [connection signal="pressed" from="LevelsContainer/Level1" to="." method="_on_Level1_pressed"]
 [connection signal="mouse_entered" from="LevelsContainer/Level2" to="." method="_on_Level2_mouse_entered"]
@@ -240,3 +275,5 @@ __meta__ = {
 [connection signal="mouse_entered" from="LevelsContainer/Level7" to="." method="_on_Level7_mouse_entered"]
 [connection signal="pressed" from="LevelsContainer/Level7" to="." method="_on_Level7_pressed"]
 [connection signal="pressed" from="ReturnButton" to="." method="_on_ReturnButton_pressed"]
+[connection signal="pressed" from="NextWorldButton" to="." method="_on_NextWorldButton_pressed"]
+[connection signal="pressed" from="PreviousWorldButton" to="." method="_on_PreviousWorldButton_pressed"]

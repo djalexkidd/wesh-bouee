@@ -51,3 +51,35 @@ func _on_Level7_mouse_entered():
 
 func _on_ReturnButton_pressed():
 	get_tree().change_scene("res://scenes/TitleScreen.tscn")
+
+func _on_NextWorldButton_pressed():
+	Global.world += 1
+	RefreshWorld()
+	
+
+func _on_PreviousWorldButton_pressed():
+	Global.world -= 1
+	RefreshWorld()
+
+func RefreshWorld():
+	var i = 1
+	var x = 1
+	while i < 9:
+		var button = get_node("LevelsContainer/Level" + str(i))
+		button.text = str(Global.world) + "-" + str(x)
+		if Global.world > 1:
+			button.disabled = true
+		else:
+			button.disabled = false
+		i += 1
+		x += 1
+	
+	if Global.world == 8:
+		$NextWorldButton.disabled = true
+	else:
+		$NextWorldButton.disabled = false
+	
+	if Global.world == 1:
+		$PreviousWorldButton.disabled = true
+	else:
+		$PreviousWorldButton.disabled = false

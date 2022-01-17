@@ -9,6 +9,7 @@ var level5_time = 999.999 #Record Niveau 5
 var level6_time = 999.999 #Record Niveau 6
 var level7_time = 999.999 #Record Niveau 7
 var level = 0 #Niveau actuel
+var world = 1 #Monde actuel
 
 func replay(): #Fonction pour faire changer/redémarrer le niveau
 	get_tree().change_scene("res://scenes/levels/Level" + str(level) + ".tscn")
