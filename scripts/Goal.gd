@@ -5,6 +5,8 @@ func _ready():
 	$HighScoreValue.text = "%0.3f" % Global.get_time() #Affiche le record
 	if Global.lasttime == Global.get_time(): #Affiche "Nouveau record" si le précédent est battu
 		$NewHighScore.show()
+	if Global.level == 8:
+		$VBoxContainer/NextButton.disabled = true
 
 func _on_NextButton_pressed(): #Démarre le niveau suivant
 	Global.level += 1

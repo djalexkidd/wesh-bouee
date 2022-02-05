@@ -10,3 +10,5 @@ LEVEL_TIME,Temps :,Time :
 LEVEL_BEST,Meilleur temps :,Personnal best :
 LEVEL_NEWBEST,Nouveau record !,New record !
 SETTINGS_FULLSCREEN,Plein écran,Full screen
+MOVECONTROL,Touches fléchés pour se déplacer,Arrow keys to move
+SPEEDCONTROL,Maintenir espace pour accélérer,Hold space to speed up

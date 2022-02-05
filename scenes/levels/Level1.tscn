@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/checkpoints/start/start2.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Level1.gd" type="Script" id=2]
@@ -62,6 +62,10 @@ animations = [ {
 "speed": 10.0
 } ]
 
+[sub_resource type="DynamicFont" id=10]
+size = 32
+font_data = ExtResource( 3 )
+
 [sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.0705882, 0.768627, 0.0705882, 1 )
 
@@ -114,7 +118,7 @@ shape = SubResource( 3 )
 position = Vector2( 7.99997, -5.96046e-06 )
 scale = Vector2( 4.83333, 4.66667 )
 frames = SubResource( 4 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="Goal" type="Area2D" parent="."]
@@ -130,7 +134,7 @@ shape = SubResource( 3 )
 position = Vector2( 7.99997, 3.8147e-05 )
 scale = Vector2( 4.83333, 4.66667 )
 frames = SubResource( 5 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Player" parent="." instance=ExtResource( 16 )]
@@ -139,6 +143,36 @@ joystickLeftPath = NodePath("../HUD/Joystick")
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 smoothing_enabled = true
+
+[node name="CommandHelp1" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -304.0
+margin_top = -320.0
+margin_right = -12.0
+margin_bottom = -280.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "MOVECONTROL"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CommandHelp2" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 1320.0
+margin_top = -72.0
+margin_right = 1616.0
+margin_bottom = -32.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "SPEEDCONTROL"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource( 9 )
@@ -197,5 +231,5 @@ visibility_mode = 1
 [connection signal="body_exited" from="Start" to="Player" method="_on_Start_body_exited"]
 [connection signal="body_entered" from="Goal" to="Player" method="_on_Goal_body_entered"]
 [connection signal="bar" from="Player" to="HUD" method="_on_Player_bar"]
-[connection signal="stopwatch" from="Player" to="HUD" method="_on_Player_stopwatch"]
 [connection signal="stopwatch" from="Player" to="." method="_on_Player_stopwatch"]
+[connection signal="stopwatch" from="Player" to="HUD" method="_on_Player_stopwatch"]
