@@ -10,6 +10,7 @@ func save_highscore():
 		"level6_time" : Global.level6_time,
 		"level7_time" : $HUD.get_time(),
 		"level8_time" : Global.level8_time,
+		"level9_time" : Global.level9_time,
 	}
 	
 	var save_file = File.new()
