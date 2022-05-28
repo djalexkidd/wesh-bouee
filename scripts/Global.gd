@@ -10,6 +10,7 @@ var level6_time = 999.999 #Record Niveau 6
 var level7_time = 999.999 #Record Niveau 7
 var level8_time = 999.999 #Record Niveau 8
 var level9_time = 999.999 #Record Niveau 9
+var level10_time = 999.999 #Record Niveau 10
 var level = 0 #Niveau actuel
 var world = 1 #Monde actuel
 
@@ -36,3 +37,5 @@ func get_time():
 			return level8_time
 		9:
 			return level9_time
+		10:
+			return level10_time

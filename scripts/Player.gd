@@ -6,6 +6,8 @@ var health = 100 #Santé du joueur
 var hurt
 var start
 var boosted
+var gravity_enabled
+const GRAVITY = 500
 var rotate_speed = 0.01
 var control = true
 signal bar
@@ -42,6 +44,9 @@ func _physics_process(delta):
 	
 	if joystickLeft and joystickLeft.is_working and control:
 		var _velocity = move_and_slide(joystickLeft.output * SPEED)
+	
+	if gravity_enabled:
+		velocity.y = velocity.y + GRAVITY
 	
 	if control:
 		velocity = move_and_slide(velocity)
@@ -85,6 +90,12 @@ func _on_Goal_body_entered(_body): #Fin de partie
 func _on_Boost_body_entered(body):
 	boosted = true
 	$BoostTimer.start()
+
+func _on_Gravity_body_entered(body):
+	gravity_enabled = true
+
+func _on_Gravity_body_exited(body):
+	gravity_enabled = false
 
 func _on_BoostTimer_timeout():
 	boosted = false
