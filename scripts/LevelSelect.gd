@@ -1,35 +1,72 @@
 extends Control
 
+func _ready():
+	RefreshWorld()
+
 func _on_Level1_pressed():
-	Global.level = 1 #Change le niveau actuel vers le niveau 1
+	match Global.world:
+		1:
+			Global.level = 1 #Change le niveau actuel vers le niveau 1
+		2:
+			Global.level = 9
+	
 	Global.replay() #Charge le niveau
 
 func _on_Level2_pressed():
-	Global.level = 2 #Change le niveau actuel vers le niveau 2
+	match Global.world:
+		1:
+			Global.level = 2 #Change le niveau actuel vers le niveau 2
+		2:
+			Global.level = 10
+	
 	Global.replay() #Charge le niveau
 
 func _on_Level3_pressed():
-	Global.level = 3 #Change le niveau actuel vers le niveau 3
+	match Global.world:
+		1:
+			Global.level = 3 #Change le niveau actuel vers le niveau 3
+		2:
+			Global.level = 11
 	Global.replay() #Charge le niveau
 
 func _on_Level4_pressed():
-	Global.level = 4 #Change le niveau actuel vers le niveau 4
+	match Global.world:
+		1:
+			Global.level = 4 #Change le niveau actuel vers le niveau 4
+		2:
+			Global.level = 12
 	Global.replay() #Charge le niveau
 
 func _on_Level5_pressed():
-	Global.level = 5 #Change le niveau actuel vers le niveau 5
+	match Global.world:
+		1:
+			Global.level = 5 #Change le niveau actuel vers le niveau 5
+		2:
+			Global.level = 13
 	Global.replay() #Charge le niveau
 
 func _on_Level6_pressed():
-	Global.level = 6 #Change le niveau actuel vers le niveau 6
+	match Global.world:
+		1:
+			Global.level = 6 #Change le niveau actuel vers le niveau 6
+		2:
+			Global.level = 14
 	Global.replay() #Charge le niveau
 
 func _on_Level7_pressed():
-	Global.level = 7 #Change le niveau actuel vers le niveau 7
+	match Global.world:
+		1:
+			Global.level = 7 #Change le niveau actuel vers le niveau 7
+		2:
+			Global.level = 15
 	Global.replay() #Charge le niveau
 
 func _on_Level8_pressed():
-	Global.level = 8 #Change le niveau actuel vers le niveau 8
+	match Global.world:
+		1:
+			Global.level = 8 #Change le niveau actuel vers le niveau 8
+		2:
+			Global.level = 16
 	Global.replay() #Charge le niveau
 
 func _on_Level1_mouse_entered():
@@ -73,14 +110,14 @@ func RefreshWorld():
 	while i < 9:
 		var button = get_node("LevelsContainer/Level" + str(i))
 		button.text = str(Global.world) + "-" + str(x)
-		if Global.world > 1:
+		if Global.world > 2:
 			button.disabled = true
 		else:
 			button.disabled = false
 		i += 1
 		x += 1
 	
-	if Global.world == 8:
+	if Global.world == 4:
 		$NextWorldButton.disabled = true
 	else:
 		$NextWorldButton.disabled = false

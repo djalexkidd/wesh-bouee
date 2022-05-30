@@ -1,0 +1,255 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://assets/checkpoints/start/start2.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Gravity.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/fonts/nokiafc22.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/backgrounds/pool.jpg" type="Texture" id=4]
+[ext_resource path="res://assets/checkpoints/start/start1.png" type="Texture" id=5]
+[ext_resource path="res://assets/checkpoints/goal/goal1.png" type="Texture" id=6]
+[ext_resource path="res://assets/checkpoints/start/start3.png" type="Texture" id=7]
+[ext_resource path="res://assets/tiles/tires_red.png" type="Texture" id=8]
+[ext_resource path="res://scripts/HUD.gd" type="Script" id=9]
+[ext_resource path="res://Joystick/A_button.png" type="Texture" id=10]
+[ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/checkpoints/goal/goal2.png" type="Texture" id=12]
+[ext_resource path="res://assets/checkpoints/goal/goal4.png" type="Texture" id=13]
+[ext_resource path="res://assets/checkpoints/goal/goal3.png" type="Texture" id=14]
+[ext_resource path="res://assets/checkpoints/start/start4.png" type="Texture" id=15]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scripts/Level11.gd" type="Script" id=17]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 56, 56, 0, 56, 0, 0, 56, 0 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "tires_red.png 0"
+0/texture = ExtResource( 8 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 56, 56 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 232, 224 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.0705882, 0.768627, 0.0705882, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0, 0, 0, 0.219608 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=9]
+size = 32
+font_data = ExtResource( 3 )
+
+[node name="Level11" type="Node2D"]
+script = ExtResource( 17 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 94, 94 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1504, 1504 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 2 )
+cell_size = Vector2( 56, 56 )
+cell_custom_transform = Transform2D( 56, 0, 0, 56, 0, 0 )
+collision_layer = 2
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( -262149, 0, 0, -262148, 0, 0, -262147, 0, 0, -262146, 0, 0, -262145, 0, 0, -327680, 0, 0, -327679, 0, 0, -327678, 0, 0, -327677, 0, 0, -327676, 0, 0, -327675, 0, 0, -196613, 0, 0, -262139, 0, 0, -131077, 0, 0, -196603, 0, 0, -65541, 0, 0, -131067, 0, 0, -5, 0, 0, -65531, 0, 0, 65531, 0, 0, 5, 0, 0, 131067, 0, 0, 65541, 0, 0, 196603, 0, 0, 131077, 0, 0, 262139, 0, 0, 196613, 0, 0, 327675, 0, 0, 262149, 0, 0, 393211, 0, 0, 393212, 0, 0, 327684, 0, 0, 327685, 0, 0, 458748, 0, 0, 393220, 0, 0, 524284, 0, 0, 458756, 0, 0, 589820, 0, 0, 524292, 0, 0, 655356, 0, 0, 589828, 0, 0, 720892, 0, 0, 655364, 0, 0, 786428, 0, 0, 720900, 0, 0, 851964, 0, 0, 786436, 0, 0, 917500, 0, 0, 851972, 0, 0, 983036, 0, 0, 917508, 0, 0, 1048572, 0, 0, 983044, 0, 0, 1114108, 0, 0, 1048580, 0, 0, 1179644, 0, 0, 1114116, 0, 0, 1245180, 0, 0, 1179652, 0, 0, 1310716, 0, 0, 1245188, 0, 0, 1376252, 0, 0, 1310724, 0, 0, 1441788, 0, 0, 1376260, 0, 0, 1376261, 0, 0, 1376262, 0, 0, 1376263, 0, 0, 1376264, 0, 0, 1507324, 0, 0, 1441800, 0, 0, 1572860, 0, 0, 1572861, 0, 0, 1572862, 0, 0, 1572863, 0, 0, 1507328, 0, 0, 1507336, 0, 0, 1572864, 0, 0, 1572872, 0, 0, 1638400, 0, 0, 1638408, 0, 0, 1703936, 0, 0, 1703944, 0, 0, 1769472, 0, 0, 1769480, 0, 0, 1835008, 0, 0, 1835016, 0, 0, 1900544, 0, 0, 1900552, 0, 0, 1966080, 0, 0, 1966088, 0, 0, 2031616, 0, 0, 2031624, 0, 0, 2097152, 0, 0, 2097160, 0, 0, 2162688, 0, 0, 2162696, 0, 0, 2228224, 0, 0, 2228232, 0, 0, 2293760, 0, 0, 2293768, 0, 0, 2359296, 0, 0, 2359304, 0, 0, 2424832, 0, 0, 2424840, 0, 0, 2490368, 0, 0, 2490376, 0, 0, 2490377, 0, 0, 2490378, 0, 0, 2490379, 0, 0, 2490380, 0, 0, 2555904, 0, 0, 2555916, 0, 0, 2621440, 0, 0, 2621441, 0, 0, 2621442, 0, 0, 2621443, 0, 0, 2621444, 0, 0, 2621452, 0, 0, 2686980, 0, 0, 2686988, 0, 0, 2752516, 0, 0, 2752524, 0, 0, 2818052, 0, 0, 2818060, 0, 0, 2883588, 0, 0, 2883596, 0, 0, 2949124, 0, 0, 2949132, 0, 0, 3014660, 0, 0, 3014668, 0, 0, 3080196, 0, 0, 3080204, 0, 0, 3145732, 0, 0, 3145740, 0, 0, 3211268, 0, 0, 3211276, 0, 0, 3276804, 0, 0, 3276812, 0, 0, 3342340, 0, 0, 3342348, 0, 0, 3407876, 0, 0, 3407884, 0, 0, 3473412, 0, 0, 3473420, 0, 0, 3538948, 0, 0, 3538956, 0, 0, 3604483, 0, 0, 3604484, 0, 0, 3604492, 0, 0, 3604493, 0, 0, 3670019, 0, 0, 3670029, 0, 0, 3735555, 0, 0, 3735565, 0, 0, 3801091, 0, 0, 3801101, 0, 0, 3866627, 0, 0, 3866637, 0, 0, 3932163, 0, 0, 3932173, 0, 0, 3997699, 0, 0, 3997709, 0, 0, 4063235, 0, 0, 4063245, 0, 0, 4128771, 0, 0, 4128781, 0, 0, 4194307, 0, 0, 4194317, 0, 0, 4259843, 0, 0, 4259853, 0, 0, 4325379, 0, 0, 4325380, 0, 0, 4325381, 0, 0, 4325382, 0, 0, 4325383, 0, 0, 4325384, 0, 0, 4325385, 0, 0, 4325386, 0, 0, 4325387, 0, 0, 4325388, 0, 0, 4325389, 0, 0 )
+
+[node name="Start" type="Area2D" parent="."]
+position = Vector2( 21, 0 )
+collision_layer = 4
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start"]
+position = Vector2( 8, 0 )
+shape = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Start"]
+position = Vector2( 7.99997, -5.96046e-06 )
+scale = Vector2( 4.83333, 4.66667 )
+frames = SubResource( 4 )
+frame = 2
+playing = true
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2( 472, 3432 )
+collision_layer = 4
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+position = Vector2( 8, 0 )
+shape = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Goal"]
+position = Vector2( 7.99997, 3.8147e-05 )
+scale = Vector2( 4.83333, 4.66667 )
+frames = SubResource( 5 )
+playing = true
+
+[node name="Gravity1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 32, 448 )
+collision_layer = 8
+
+[node name="Gravity2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 32, 768 )
+collision_layer = 8
+
+[node name="Gravity3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 32, 1088 )
+collision_layer = 8
+
+[node name="Gravity4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 256, 1408 )
+collision_layer = 8
+
+[node name="Gravity5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 256, 1728 )
+collision_layer = 8
+
+[node name="Gravity6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 256, 2048 )
+collision_layer = 8
+
+[node name="Gravity7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 480, 2368 )
+collision_layer = 8
+
+[node name="Gravity8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 480, 2688 )
+collision_layer = 8
+
+[node name="Gravity9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 480, 3008 )
+collision_layer = 8
+
+[node name="Player" parent="." instance=ExtResource( 16 )]
+position = Vector2( 29, 0 )
+joystickLeftPath = NodePath("../HUD/Joystick")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+smoothing_enabled = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource( 9 )
+
+[node name="ProgressBar" type="ProgressBar" parent="HUD"]
+anchor_right = 1.0
+margin_bottom = 14.0
+custom_styles/fg = SubResource( 6 )
+custom_styles/bg = SubResource( 7 )
+step = 1.0
+value = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="HUD"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -92.0
+margin_top = -72.0
+margin_right = 92.0
+custom_styles/panel = SubResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="HUD"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -80.0
+margin_top = -56.0
+margin_right = -56.0
+margin_bottom = -16.0
+custom_fonts/font = SubResource( 9 )
+text = "#"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Joystick" parent="HUD" instance=ExtResource( 11 )]
+dead_zone = 0.2
+visibility_mode = 1
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="HUD"]
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 1056, 496 )
+scale = Vector2( 1.70079, 1.66154 )
+normal = ExtResource( 10 )
+action = "run"
+visibility_mode = 1
+
+[connection signal="body_exited" from="Start" to="Player" method="_on_Start_body_exited"]
+[connection signal="body_entered" from="Goal" to="Player" method="_on_Goal_body_entered"]
+[connection signal="body_entered" from="Gravity1" to="Player" method="_on_Gravity_body_entered"]
+[connection signal="body_entered" from="Gravity2" to="Player" method="_on_Gravity_body_entered"]
+[connection signal="body_entered" from="Gravity3" to="Player" method="_on_Gravity_body_entered"]
+[connection signal="body_entered" from="Gravity4" to="Player" method="_on_Gravity_body_entered"]
+[connection signal="body_entered" from="Gravity5" to="Player" method="_on_Gravity_body_entered"]
+[connection signal="body_entered" from="Gravity6" to="Player" method="_on_Gravity_body_entered"]
+[connection signal="body_entered" from="Gravity7" to="Player" method="_on_Gravity_body_entered"]
+[connection signal="body_entered" from="Gravity8" to="Player" method="_on_Gravity_body_entered"]
+[connection signal="body_entered" from="Gravity9" to="Player" method="_on_Gravity_body_entered"]
+[connection signal="body_exited" from="Gravity9" to="Player" method="_on_Gravity_body_exited"]
+[connection signal="bar" from="Player" to="HUD" method="_on_Player_bar"]
+[connection signal="stopwatch" from="Player" to="." method="_on_Player_stopwatch"]
+[connection signal="stopwatch" from="Player" to="HUD" method="_on_Player_stopwatch"]
