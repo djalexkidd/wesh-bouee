@@ -92,7 +92,7 @@ motion_mirroring = Vector2( 94, 94 )
 texture = ExtResource( 4 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 0, 0, 1504, 1504 )
+region_rect = Rect2( 0, 0, 3008, 3008 )
 
 [node name="Start" type="Area2D" parent="."]
 position = Vector2( 16, 0 )
@@ -110,7 +110,6 @@ shape = SubResource( 3 )
 position = Vector2( 7.99997, -5.96046e-06 )
 scale = Vector2( 4.83333, 4.66667 )
 frames = SubResource( 4 )
-frame = 2
 playing = true
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -133,6 +132,7 @@ shape = SubResource( 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Goal"]
 scale = Vector2( 4.83333, 4.66667 )
 frames = SubResource( 5 )
+frame = 2
 playing = true
 
 [node name="Boost1" parent="." instance=ExtResource( 17 )]

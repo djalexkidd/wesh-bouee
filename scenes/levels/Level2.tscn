@@ -91,7 +91,7 @@ motion_mirroring = Vector2( 94, 94 )
 texture = ExtResource( 4 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 0, 0, 1504, 1504 )
+region_rect = Rect2( 0, 0, 3008, 3008 )
 
 [node name="Start" type="Area2D" parent="."]
 collision_layer = 4

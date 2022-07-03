@@ -91,7 +91,7 @@ motion_mirroring = Vector2( 94, 94 )
 texture = ExtResource( 4 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 0, 0, 1504, 1504 )
+region_rect = Rect2( 0, 0, 3008, 3008 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
@@ -114,6 +114,7 @@ shape = SubResource( 3 )
 position = Vector2( 7.99997, -5.96046e-06 )
 scale = Vector2( 4.83333, 4.66667 )
 frames = SubResource( 4 )
+frame = 3
 playing = true
 
 [node name="Goal" type="Area2D" parent="."]
@@ -132,7 +133,7 @@ shape = SubResource( 3 )
 position = Vector2( 7.99997, 3.8147e-05 )
 scale = Vector2( 4.83333, 4.66667 )
 frames = SubResource( 5 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Player" parent="." instance=ExtResource( 16 )]
