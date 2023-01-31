@@ -1,32 +1,19 @@
 extends Node2D
 
 func save_highscore():
-	var data = {
-		"level1_time" : $HUD.get_time(),
-		"level2_time" : Global.level2_time,
-		"level3_time" : Global.level3_time,
-		"level4_time" : Global.level4_time,
-		"level5_time" : Global.level5_time,
-		"level6_time" : Global.level6_time,
-		"level7_time" : Global.level7_time,
-		"level8_time" : Global.level8_time,
-		"level9_time" : Global.level9_time,
-		"level10_time" : Global.level10_time,
-		"level11_time" : Global.level11_time,
-		"level12_time" : Global.level12_time,
-	}
+	var config = ConfigFile.new()
 	
-	var save_file = File.new()
-	save_file.open("user://highscores.json", File.WRITE)
-	save_file.store_line(to_json(data))
-	save_file.close()
+	for n in 12:
+		config.set_value("Scores", var2str(n), Global.level_time[n])
+	
+	config.save("user://scores.cfg")
 
 func _on_Player_stopwatch():
-	if $HUD.time > 1 and $HUD.time < Global.level1_time:
+	if $HUD.time > 1 and $HUD.time < str2var(Global.level_time[Global.level-1]):
 		GlobalScene.foo()
 		Global.lasttime = $HUD.time
-		Global.level1_time = $HUD.get_time()
+		Global.level_time[Global.level-1] = "%0.3f" % ($HUD.time)
 		save_highscore()
-	elif $HUD.time > 1 and not $HUD.time < Global.level1_time:
+	elif $HUD.time > 1 and not $HUD.time < str2var(Global.level_time[Global.level-1]):
 		GlobalScene.foo()
 		Global.lasttime = $HUD.time

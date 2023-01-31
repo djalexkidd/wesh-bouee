@@ -16,7 +16,7 @@
 [ext_resource path="res://assets/checkpoints/goal/goal3.png" type="Texture" id=14]
 [ext_resource path="res://assets/checkpoints/start/start4.png" type="Texture" id=15]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scripts/Level12.gd" type="Script" id=17]
+[ext_resource path="res://scripts/Level1.gd" type="Script" id=17]
 [ext_resource path="res://scenes/Boost.tscn" type="PackedScene" id=18]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -120,7 +120,7 @@ shape = SubResource( 3 )
 position = Vector2( 7.99997, -5.96046e-06 )
 scale = Vector2( 4.83333, 4.66667 )
 frames = SubResource( 4 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="Goal" type="Area2D" parent="."]
@@ -139,6 +139,7 @@ shape = SubResource( 3 )
 position = Vector2( 7.99997, 3.8147e-05 )
 scale = Vector2( 4.83333, 4.66667 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 
 [node name="Boost1" parent="." instance=ExtResource( 18 )]

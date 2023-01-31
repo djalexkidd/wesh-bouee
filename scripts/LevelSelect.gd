@@ -70,28 +70,28 @@ func _on_Level8_pressed():
 	Global.replay() #Charge le niveau
 
 func _on_Level1_mouse_entered():
-	$HighScoreValue.text = "%0.3f" % Global.level1_time
+	$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[0])]
 
 func _on_Level2_mouse_entered():
-	$HighScoreValue.text = "%0.3f" % Global.level2_time
+	$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[1])]
 
 func _on_Level3_mouse_entered():
-	$HighScoreValue.text = "%0.3f" % Global.level3_time
+	$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[2])]
 
 func _on_Level4_mouse_entered():
-	$HighScoreValue.text = "%0.3f" % Global.level4_time
+	$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[3])]
 
 func _on_Level5_mouse_entered():
-	$HighScoreValue.text = "%0.3f" % Global.level5_time
+	$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[4])]
 
 func _on_Level6_mouse_entered():
-	$HighScoreValue.text = "%0.3f" % Global.level6_time
+	$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[5])]
 
 func _on_Level7_mouse_entered():
-	$HighScoreValue.text = "%0.3f" % Global.level7_time
+	$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[6])]
 
 func _on_Level8_mouse_entered():
-	$HighScoreValue.text = "%0.3f" % Global.level8_time
+	$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[7])]
 
 func _on_ReturnButton_pressed():
 	get_tree().change_scene("res://scenes/TitleScreen.tscn")

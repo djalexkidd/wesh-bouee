@@ -16,7 +16,7 @@
 [ext_resource path="res://assets/checkpoints/goal/goal3.png" type="Texture" id=14]
 [ext_resource path="res://assets/checkpoints/start/start4.png" type="Texture" id=15]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scripts/Level10.gd" type="Script" id=17]
+[ext_resource path="res://scripts/Level1.gd" type="Script" id=17]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 56, 56, 0, 56, 0, 0, 56, 0 )
