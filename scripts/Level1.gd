@@ -3,7 +3,7 @@ extends Node2D
 func save_highscore():
 	var config = ConfigFile.new()
 	
-	for n in 12:
+	for n in Global.level_time.size():
 		config.set_value("Scores", var2str(n), Global.level_time[n])
 	
 	config.save("user://scores.cfg")
