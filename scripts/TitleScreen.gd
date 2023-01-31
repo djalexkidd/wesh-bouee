@@ -33,6 +33,7 @@ func load_highscore():
 	Global.level9_time = game_data.level9_time
 	Global.level10_time = game_data.level10_time
 	Global.level11_time = game_data.level11_time
+	Global.level12_time = game_data.level12_time
 	save_file.close() #Ferme le fichier
 
 #Active/Désactive le plein écran

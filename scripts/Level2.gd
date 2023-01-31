@@ -13,6 +13,7 @@ func save_highscore():
 		"level9_time" : Global.level9_time,
 		"level10_time" : Global.level10_time,
 		"level11_time" : Global.level11_time,
+		"level12_time" : Global.level12_time,
 	}
 	
 	var save_file = File.new()

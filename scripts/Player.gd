@@ -7,7 +7,7 @@ var hurt
 var start
 var boosted
 var gravity_enabled
-const GRAVITY = 500
+var GRAVITY = 500
 var rotate_speed = 0.01
 var control = true
 signal bar
@@ -93,6 +93,7 @@ func _on_Boost_body_entered(body):
 
 func _on_Gravity_body_entered(body):
 	gravity_enabled = true
+	GRAVITY = 500
 
 func _on_Gravity_body_exited(body):
 	gravity_enabled = false
@@ -102,3 +103,7 @@ func _on_BoostTimer_timeout():
 
 func _on_FinishTimer_timeout():
 	get_tree().change_scene("res://scenes/Goal.tscn") #Affiche l'écran de victoire
+
+func _on_AntiGravity_body_entered(body):
+	gravity_enabled = true
+	GRAVITY = -500
