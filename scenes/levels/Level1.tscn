@@ -85,6 +85,10 @@ font_data = ExtResource( 3 )
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 2 )
+bronze_medal = 15.0
+silver_medal = 10.0
+gold_medal = 8.0
+author_medal = 7.8
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -118,7 +122,7 @@ shape = SubResource( 3 )
 position = Vector2( 7.99997, -5.96046e-06 )
 scale = Vector2( 4.83333, 4.66667 )
 frames = SubResource( 4 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="Goal" type="Area2D" parent="."]
@@ -134,7 +138,6 @@ shape = SubResource( 3 )
 position = Vector2( 7.99997, 3.8147e-05 )
 scale = Vector2( 4.83333, 4.66667 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 
 [node name="Player" parent="." instance=ExtResource( 16 )]

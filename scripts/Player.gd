@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var movedir = Vector2(0,0)
-var SPEED = 180 #Vitesse du joueur
+var SPEED = 360 #Vitesse du joueur
 var health = 100 #Santé du joueur
 var hurt
 var start
@@ -27,12 +27,12 @@ func _physics_process(delta):
 	#Permet de changer la vitesse du joueur si le bouton A est maintenu
 	if Input.is_action_pressed("run"):
 		if !boosted:
-			SPEED = 360
+			SPEED = 180
 		else:
 			SPEED = 720
 	else:
 		if !boosted:
-			SPEED = 180
+			SPEED = 360
 		else:
 			SPEED = 720
 	

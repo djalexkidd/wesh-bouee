@@ -21,15 +21,44 @@ func load_highscore():
 		for n in 14:
 			config.set_value("Scores", var2str(n), "999.999")
 			Global.level_time[n] = "999.999"
+			
+			config.set_value("Bronze Medals", var2str(n), "false")
+			Global.bronze_medals_owned[n] = "false"
+			
+			config.set_value("Silver Medals", var2str(n), "false")
+			Global.silver_medals_owned[n] = "false"
+			
+			config.set_value("Gold Medals", var2str(n), "false")
+			Global.gold_medals_owned[n] = "false"
+			
+			config.set_value("Author Medals", var2str(n), "false")
+			Global.author_medals_owned[n] = "false"
 		config.save("user://scores.cfg")
 		return
 	
-	var err = config.load("user://scores.cfg")
+	config.load("user://scores.cfg")
 	
 	for n in config.get_sections():
-		for score in 14:
-			var level_score = config.get_value(n, var2str(score))
-			Global.level_time[score] = level_score
+		if n == "Scores":
+			for score in 14:
+				var level_score = config.get_value(n, var2str(score))
+				Global.level_time[score] = level_score
+		elif n == "Bronze Medals":
+			for bronze in 14:
+				var bmedal = config.get_value(n, var2str(bronze))
+				Global.bronze_medals_owned[bronze] = bmedal
+		elif n == "Silver Medals":
+			for silver in 14:
+				var smedal = config.get_value(n, var2str(silver))
+				Global.silver_medals_owned[silver] = smedal
+		elif n == "Gold Medals":
+			for gold in 14:
+				var gmedal = config.get_value(n, var2str(gold))
+				Global.gold_medals_owned[gold] = gmedal
+		elif n == "Author Medals":
+			for author in 14:
+				var amedal = config.get_value(n, var2str(author))
+				Global.author_medals_owned[author] = amedal
 
 #Active/Désactive le plein écran
 func _on_FullScreenButton_pressed():
