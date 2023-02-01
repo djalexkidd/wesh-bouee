@@ -70,28 +70,62 @@ func _on_Level8_pressed():
 	Global.replay() #Charge le niveau
 
 func _on_Level1_mouse_entered():
-	$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[0])]
+	match Global.world:
+		1:
+			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[0])]
+		2:
+			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[8])]
 
 func _on_Level2_mouse_entered():
-	$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[1])]
+	match Global.world:
+		1:
+			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[1])]
+		2:
+			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[9])]
 
 func _on_Level3_mouse_entered():
-	$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[2])]
+	match Global.world:
+		1:
+			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[2])]
+		2:
+			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[10])]
 
 func _on_Level4_mouse_entered():
-	$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[3])]
+	match Global.world:
+		1:
+			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[3])]
+		2:
+			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[11])]
 
 func _on_Level5_mouse_entered():
-	$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[4])]
+	match Global.world:
+		1:
+			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[4])]
+		2:
+			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[12])]
 
 func _on_Level6_mouse_entered():
-	$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[5])]
+	match Global.world:
+		1:
+			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[5])]
+		2:
+			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[13])]
 
 func _on_Level7_mouse_entered():
-	$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[6])]
+	match Global.world:
+		1:
+			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[6])]
+		2:
+			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[0])]
+			#$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[14])]
 
 func _on_Level8_mouse_entered():
-	$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[7])]
+	match Global.world:
+		1:
+			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[7])]
+		2:
+			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[0])]
+			#$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[15])]
 
 func _on_ReturnButton_pressed():
 	get_tree().change_scene("res://scenes/TitleScreen.tscn")

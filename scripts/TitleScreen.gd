@@ -18,7 +18,7 @@ func load_highscore():
 	var config = ConfigFile.new()
 	var file2Check = File.new()
 	if not file2Check.file_exists("user://scores.cfg"):
-		for n in 13:
+		for n in 14:
 			config.set_value("Scores", var2str(n), "999.999")
 			Global.level_time[n] = "999.999"
 		config.save("user://scores.cfg")
@@ -27,7 +27,7 @@ func load_highscore():
 	var err = config.load("user://scores.cfg")
 	
 	for n in config.get_sections():
-		for score in 13:
+		for score in 14:
 			var level_score = config.get_value(n, var2str(score))
 			Global.level_time[score] = level_score
 
