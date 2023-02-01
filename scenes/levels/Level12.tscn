@@ -83,6 +83,10 @@ font_data = ExtResource( 3 )
 
 [node name="Level12" type="Node2D"]
 script = ExtResource( 17 )
+bronze_medal = 15.0
+silver_medal = 13.0
+gold_medal = 11.75
+author_medal = 11.3
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

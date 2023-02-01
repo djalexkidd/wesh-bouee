@@ -1,5 +1,7 @@
 extends Control
 
+const nbr_levels = 14
+
 func _ready():
 	load_highscore()
 	
@@ -18,7 +20,7 @@ func load_highscore():
 	var config = ConfigFile.new()
 	var file2Check = File.new()
 	if not file2Check.file_exists("user://scores.cfg"):
-		for n in 14:
+		for n in nbr_levels:
 			config.set_value("Scores", var2str(n), "999.999")
 			Global.level_time[n] = "999.999"
 			
@@ -40,15 +42,15 @@ func load_highscore():
 	
 	for n in config.get_sections():
 		if n == "Scores":
-			for score in 14:
+			for score in nbr_levels:
 				var level_score = config.get_value(n, var2str(score))
 				Global.level_time[score] = level_score
 		elif n == "Bronze Medals":
-			for bronze in 14:
+			for bronze in nbr_levels:
 				var bmedal = config.get_value(n, var2str(bronze))
 				Global.bronze_medals_owned[bronze] = bmedal
 		elif n == "Silver Medals":
-			for silver in 14:
+			for silver in nbr_levels:
 				var smedal = config.get_value(n, var2str(silver))
 				Global.silver_medals_owned[silver] = smedal
 		elif n == "Gold Medals":
@@ -56,7 +58,7 @@ func load_highscore():
 				var gmedal = config.get_value(n, var2str(gold))
 				Global.gold_medals_owned[gold] = gmedal
 		elif n == "Author Medals":
-			for author in 14:
+			for author in nbr_levels:
 				var amedal = config.get_value(n, var2str(author))
 				Global.author_medals_owned[author] = amedal
 
