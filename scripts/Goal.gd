@@ -7,6 +7,7 @@ func _ready():
 		$NewHighScore.show()
 	if Global.level == 8:
 		$VBoxContainer/NextButton.disabled = true
+	LoadMedals()
 
 func _on_NextButton_pressed(): #Démarre le niveau suivant
 	Global.level += 1
@@ -20,3 +21,24 @@ func _on_RestartButton_pressed(): #Redémarre le niveau
 func _on_QuitButton_pressed(): #Retourne à la sélection du niveau
 	get_tree().change_scene("res://scenes/LevelSelect.tscn")
 	GlobalScene.bar()
+
+func LoadMedals():
+	if Global.bronze_medals_owned[Global.level-1] == "true":
+		$MedalsContainer/OwnedMedals/BronzeMedal.set_modulate(Color(1,1,1,1))
+	else:
+		$MedalsContainer/OwnedMedals/BronzeMedal.set_modulate(Color(1,1,1,0))
+	
+	if Global.silver_medals_owned[Global.level-1] == "true":
+		$MedalsContainer/OwnedMedals/SilverMedal.set_modulate(Color(1,1,1,1))
+	else:
+		$MedalsContainer/OwnedMedals/SilverMedal.set_modulate(Color(1,1,1,0))
+	
+	if Global.gold_medals_owned[Global.level-1] == "true":
+		$MedalsContainer/OwnedMedals/GoldMedal.set_modulate(Color(1,1,1,1))
+	else:
+		$MedalsContainer/OwnedMedals/GoldMedal.set_modulate(Color(1,1,1,0))
+	
+	if Global.author_medals_owned[Global.level-1] == "true":
+		$MedalsContainer/OwnedMedals/AuthorMedal.set_modulate(Color(1,1,1,1))
+	else:
+		$MedalsContainer/OwnedMedals/AuthorMedal.set_modulate(Color(1,1,1,0))

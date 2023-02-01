@@ -1,8 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/fonts/nokiafc22.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/LevelSelect.gd" type="Script" id=2]
 [ext_resource path="res://themes/LevelSelect_button.tres" type="Theme" id=3]
+[ext_resource path="res://assets/medals/flat_medal2.png" type="Texture" id=4]
+[ext_resource path="res://assets/medals/flat_medal4.png" type="Texture" id=5]
+[ext_resource path="res://assets/medals/flat_medal3.png" type="Texture" id=6]
+[ext_resource path="res://assets/medals/flat_medal1.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -26,9 +30,6 @@ font_data = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -208,6 +209,77 @@ text = "1-8"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MedalsContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -88.0
+margin_top = -229.0
+margin_right = 88.0
+margin_bottom = -155.0
+
+[node name="OwnedMedals" type="HBoxContainer" parent="MedalsContainer"]
+margin_right = 176.0
+margin_bottom = 74.0
+alignment = 1
+
+[node name="BronzeMedal" type="TextureRect" parent="MedalsContainer/OwnedMedals"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 41.0
+margin_bottom = 74.0
+texture = ExtResource( 4 )
+
+[node name="SilverMedal" type="TextureRect" parent="MedalsContainer/OwnedMedals"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 45.0
+margin_right = 86.0
+margin_bottom = 74.0
+texture = ExtResource( 6 )
+
+[node name="GoldMedal" type="TextureRect" parent="MedalsContainer/OwnedMedals"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 90.0
+margin_right = 131.0
+margin_bottom = 74.0
+texture = ExtResource( 5 )
+
+[node name="AuthorMedal" type="TextureRect" parent="MedalsContainer/OwnedMedals"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 135.0
+margin_right = 176.0
+margin_bottom = 74.0
+texture = ExtResource( 7 )
+
+[node name="NotOwnedMedals" type="HBoxContainer" parent="MedalsContainer"]
+modulate = Color( 1, 1, 1, 0.196078 )
+margin_right = 176.0
+margin_bottom = 74.0
+alignment = 1
+
+[node name="BronzeMedal" type="TextureRect" parent="MedalsContainer/NotOwnedMedals"]
+margin_right = 41.0
+margin_bottom = 74.0
+texture = ExtResource( 4 )
+
+[node name="SilverMedal" type="TextureRect" parent="MedalsContainer/NotOwnedMedals"]
+margin_left = 45.0
+margin_right = 86.0
+margin_bottom = 74.0
+texture = ExtResource( 6 )
+
+[node name="GoldMedal" type="TextureRect" parent="MedalsContainer/NotOwnedMedals"]
+margin_left = 90.0
+margin_right = 131.0
+margin_bottom = 74.0
+texture = ExtResource( 5 )
+
+[node name="AuthorMedal" type="TextureRect" parent="MedalsContainer/NotOwnedMedals"]
+margin_left = 135.0
+margin_right = 176.0
+margin_bottom = 74.0
+texture = ExtResource( 7 )
 
 [node name="ReturnButton" type="Button" parent="."]
 anchor_top = 1.0

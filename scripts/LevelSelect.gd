@@ -73,48 +73,61 @@ func _on_Level1_mouse_entered():
 	match Global.world:
 		1:
 			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[0])]
+			LoadMedals(0)
 		2:
 			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[8])]
+			LoadMedals(8)
 
 func _on_Level2_mouse_entered():
 	match Global.world:
 		1:
 			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[1])]
+			LoadMedals(1)
 		2:
 			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[9])]
+			LoadMedals(9)
 
 func _on_Level3_mouse_entered():
 	match Global.world:
 		1:
 			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[2])]
+			LoadMedals(2)
 		2:
 			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[10])]
+			LoadMedals(10)
 
 func _on_Level4_mouse_entered():
 	match Global.world:
 		1:
 			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[3])]
+			LoadMedals(3)
 		2:
 			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[11])]
+			LoadMedals(11)
 
 func _on_Level5_mouse_entered():
 	match Global.world:
 		1:
 			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[4])]
+			LoadMedals(4)
 		2:
 			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[12])]
+			LoadMedals(12)
 
 func _on_Level6_mouse_entered():
 	match Global.world:
 		1:
 			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[5])]
+			LoadMedals(5)
 		2:
 			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[13])]
+			LoadMedals(13)
 
 func _on_Level7_mouse_entered():
 	match Global.world:
 		1:
 			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[6])]
+			LoadMedals(6)
 		2:
 			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[0])]
 			#$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[14])]
@@ -160,3 +173,24 @@ func RefreshWorld():
 		$PreviousWorldButton.disabled = true
 	else:
 		$PreviousWorldButton.disabled = false
+
+func LoadMedals(hovered):
+	if Global.bronze_medals_owned[hovered] == "true":
+		$MedalsContainer/OwnedMedals/BronzeMedal.set_modulate(Color(1,1,1,1))
+	else:
+		$MedalsContainer/OwnedMedals/BronzeMedal.set_modulate(Color(1,1,1,0))
+	
+	if Global.silver_medals_owned[hovered] == "true":
+		$MedalsContainer/OwnedMedals/SilverMedal.set_modulate(Color(1,1,1,1))
+	else:
+		$MedalsContainer/OwnedMedals/SilverMedal.set_modulate(Color(1,1,1,0))
+	
+	if Global.gold_medals_owned[hovered] == "true":
+		$MedalsContainer/OwnedMedals/GoldMedal.set_modulate(Color(1,1,1,1))
+	else:
+		$MedalsContainer/OwnedMedals/GoldMedal.set_modulate(Color(1,1,1,0))
+	
+	if Global.author_medals_owned[hovered] == "true":
+		$MedalsContainer/OwnedMedals/AuthorMedal.set_modulate(Color(1,1,1,1))
+	else:
+		$MedalsContainer/OwnedMedals/AuthorMedal.set_modulate(Color(1,1,1,0))
