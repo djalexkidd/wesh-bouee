@@ -1,6 +1,6 @@
 extends Control
 
-const nbr_levels = 14
+const nbr_levels = 15
 
 func _ready():
 	load_highscore()
@@ -54,7 +54,7 @@ func load_highscore():
 				var smedal = config.get_value(n, var2str(silver))
 				Global.silver_medals_owned[silver] = smedal
 		elif n == "Gold Medals":
-			for gold in 14:
+			for gold in nbr_levels:
 				var gmedal = config.get_value(n, var2str(gold))
 				Global.gold_medals_owned[gold] = gmedal
 		elif n == "Author Medals":

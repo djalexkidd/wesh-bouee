@@ -129,8 +129,8 @@ func _on_Level7_mouse_entered():
 			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[6])]
 			LoadMedals(6)
 		2:
-			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[0])]
-			#$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[14])]
+			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[14])]
+			LoadMedals(14)
 
 func _on_Level8_mouse_entered():
 	match Global.world:
