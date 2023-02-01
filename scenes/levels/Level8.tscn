@@ -85,7 +85,7 @@ script = ExtResource( 2 )
 bronze_medal = 50.0
 silver_medal = 48.7
 gold_medal = 46.3
-author_medal = 45.0
+author_medal = 45.68
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -134,7 +134,6 @@ shape = SubResource( 3 )
 position = Vector2( 7.99997, 3.8147e-05 )
 scale = Vector2( 4.83333, 4.66667 )
 frames = SubResource( 5 )
-frame = 2
 playing = true
 
 [node name="Boost1" parent="." instance=ExtResource( 17 )]

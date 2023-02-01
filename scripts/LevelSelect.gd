@@ -136,9 +136,10 @@ func _on_Level8_mouse_entered():
 	match Global.world:
 		1:
 			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[7])]
+			LoadMedals(7)
 		2:
-			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[0])]
-			#$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[15])]
+			$HighScoreValue.text = "%0.3f" % [str2var(Global.level_time[15])]
+			LoadMedals(15)
 
 func _on_ReturnButton_pressed():
 	get_tree().change_scene("res://scenes/TitleScreen.tscn")

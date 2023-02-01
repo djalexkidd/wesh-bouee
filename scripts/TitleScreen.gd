@@ -1,6 +1,6 @@
 extends Control
 
-const nbr_levels = 15
+const nbr_levels = 16
 
 func _ready():
 	load_highscore()
