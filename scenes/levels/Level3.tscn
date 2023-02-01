@@ -82,6 +82,10 @@ font_data = ExtResource( 3 )
 
 [node name="Level3" type="Node2D"]
 script = ExtResource( 2 )
+bronze_medal = 25.0
+silver_medal = 20.0
+gold_medal = 17.9
+author_medal = 17.6
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -110,7 +114,6 @@ shape = SubResource( 3 )
 position = Vector2( 7.99997, -5.96046e-06 )
 scale = Vector2( 4.83333, 4.66667 )
 frames = SubResource( 4 )
-frame = 3
 playing = true
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -133,7 +136,7 @@ shape = SubResource( 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Goal"]
 scale = Vector2( 4.83333, 4.66667 )
 frames = SubResource( 5 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Boost1" parent="." instance=ExtResource( 17 )]
