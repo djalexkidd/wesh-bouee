@@ -97,23 +97,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FullScreenButton" type="Button" parent="."]
+[node name="SettingsButton" type="Button" parent="."]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -452.0
+margin_left = -332.0
 margin_top = -46.0
 custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
 custom_fonts/font = SubResource( 5 )
 custom_styles/focus = SubResource( 3 )
-text = "SETTINGS_FULLSCREEN"
+text = "TITLE_SETTINGS"
 flat = true
 align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
-[connection signal="pressed" from="FullScreenButton" to="." method="_on_FullScreenButton_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_SettingsButton_pressed"]

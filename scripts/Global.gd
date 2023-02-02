@@ -9,6 +9,9 @@ var silver_medals_owned = {} #Medailles d'argent obtenues
 var gold_medals_owned = {} #Medailles d'or obtenues
 var author_medals_owned = {} #Medailles d'auteur obtenues
 
+#Paramètres
+var ForceTouchScreen = false
+
 func replay(): #Fonction pour faire changer/redémarrer le niveau
 	get_tree().change_scene("res://scenes/levels/Level" + str(level) + ".tscn")
 

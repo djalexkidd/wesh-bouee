@@ -4,9 +4,6 @@ const nbr_levels = 16
 
 func _ready():
 	load_highscore()
-	
-	if OS.get_name() == "Android":
-		$FullScreenButton.queue_free()
 
 func _on_StartButton_pressed(): #Bouton pour démarrer une partie
 	get_tree().change_scene("res://scenes/LevelSelect.tscn")
@@ -62,9 +59,5 @@ func load_highscore():
 				var amedal = config.get_value(n, var2str(author))
 				Global.author_medals_owned[author] = amedal
 
-#Active/Désactive le plein écran
-func _on_FullScreenButton_pressed():
-	if OS.window_fullscreen:
-		OS.window_fullscreen = false
-	else:
-		OS.window_fullscreen = true
+func _on_SettingsButton_pressed():
+	get_tree().change_scene("res://scenes/Settings.tscn")

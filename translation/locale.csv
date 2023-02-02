@@ -12,3 +12,8 @@ LEVEL_NEWBEST,Nouveau record !,New record !
 SETTINGS_FULLSCREEN,Plein écran,Full screen
 MOVECONTROL,Touches fléchés pour se déplacer,Arrow keys to move
 SPEEDCONTROL,Maintenir espace pour accélérer,Hold space to speed up
+SETTINGS_ENABLED,Activé,Enabled
+SETTINGS_DISABLED,Désactivé,Disabled
+TITLE_SETTINGS,Paramètres,Settings
+SETTINGS_RESET,Réinitialiser la sauvegarde,Reset save
+SETTINGS_MIUI_FIX,Forcer contrôles tactiles,Force touch controls

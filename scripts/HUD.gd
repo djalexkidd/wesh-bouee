@@ -4,7 +4,7 @@ var time = 0
 var running
 
 func _ready():
-	if Input.get_joy_name(0):
+	if Input.get_joy_name(0) and !Global.ForceTouchScreen:
 		$Joystick.hide()
 		$TouchScreenButton.hide()
 
