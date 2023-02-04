@@ -5,6 +5,8 @@ var reset = 11
 func _ready():
 	if OS.get_name() == "Android":
 		$SettingsContainer/FullScreenButton.disabled = true
+	else:
+		$SettingsContainer/MiuiFixButton.disabled = true
 
 	
 	if OS.window_fullscreen:
