@@ -1,66 +1,31 @@
-extends KinematicBody2D
+extends RigidBody2D
 
 var movedir = Vector2(0,0)
-var SPEED = 360 #Vitesse du joueur
+var SPEED = 180 #Vitesse du joueur
 var health = 100 #Santé du joueur
 var hurt
 var start
-var boosted
 var gravity_enabled
-var GRAVITY = 500
+const GRAVITY = 500
 var rotate_speed = 0.01
 var control = true
+const EARTH_GRAVITY = 9.8
 signal bar
 signal stopwatch
 
 export (NodePath) var joystickLeftPath
 onready var joystickLeft : Joystick = get_node(joystickLeftPath)
 
-func _physics_process(delta):
-	movedir.x = -Input.get_action_strength("left") + Input.get_action_strength("right")
-	movedir.y = +Input.get_action_strength("down") - Input.get_action_strength("up")
-	
-	movedir = movedir.clamped(1)
-	
-	var velocity = movedir * SPEED
-	
-	#Permet de changer la vitesse du joueur si le bouton A est maintenu
-	if Input.is_action_pressed("run"):
-		if !boosted:
-			SPEED = 180
-		else:
-			SPEED = 720
-	else:
-		if !boosted:
-			SPEED = 360
-		else:
-			SPEED = 720
-	
-	if Input.is_action_just_pressed("restart"):
-		Global.replay()
-	
-	if Input.is_action_just_pressed("exit"):
-		get_tree().change_scene("res://scenes/LevelSelect.tscn")
-	
-	if joystickLeft and joystickLeft.is_working and control:
-		var _velocity = move_and_slide(joystickLeft.output * SPEED)
-	
-	if gravity_enabled:
-		velocity.y = velocity.y + GRAVITY
-	
-	if control:
-		velocity = move_and_slide(velocity)
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	var gravity_strength = Physics2DServer.area_get_param(get_viewport().find_world_2d().get_space(), Physics2DServer.AREA_PARAM_GRAVITY)
 
-	$Sprite.rotate(rotate_speed) #Fait tourner le sprite du joueur
-	
-	if hurt:
-		health -= 2
-		emit_signal("bar")
-		set_modulate(Color(1,0.3,0.3)) #Change la couleur du sprite en rouge
-		Input.start_joy_vibration(0,1,1,0.1)  #Fait vibrer la manette
-		Input.vibrate_handheld() #Fait vibrer le téléphone
-		if health == 0: #Si la vie du joueur tombe à 0
-			get_tree().change_scene("res://scenes/GameOver.tscn") #Fait un Game Over
+func _physics_process(delta):
+	var accel = Input.get_accelerometer()
+	if accel and control:
+		#print(accel)
+		var gravity_vector = Vector2(accel.x/EARTH_GRAVITY, -accel.y/EARTH_GRAVITY)
+		Physics2DServer.area_set_param(get_viewport().find_world_2d().get_space(), Physics2DServer.AREA_PARAM_GRAVITY_VECTOR, gravity_vector)
 
 func _on_hitbox_body_entered(_body):
 	if start:
@@ -88,22 +53,17 @@ func _on_Goal_body_entered(_body): #Fin de partie
 	$FinishTimer.start()
 
 func _on_Boost_body_entered(body):
-	boosted = true
+	gravity_scale = 128
 	$BoostTimer.start()
 
 func _on_Gravity_body_entered(body):
 	gravity_enabled = true
-	GRAVITY = 500
 
 func _on_Gravity_body_exited(body):
 	gravity_enabled = false
 
 func _on_BoostTimer_timeout():
-	boosted = false
+	gravity_scale = 32
 
 func _on_FinishTimer_timeout():
 	get_tree().change_scene("res://scenes/Goal.tscn") #Affiche l'écran de victoire
-
-func _on_AntiGravity_body_entered(body):
-	gravity_enabled = true
-	GRAVITY = -500
