@@ -147,10 +147,12 @@ func _on_ReturnButton_pressed():
 func _on_NextWorldButton_pressed():
 	Global.world += 1
 	RefreshWorld()
+	GlobalScene.update_bgm()
 
 func _on_PreviousWorldButton_pressed():
 	Global.world -= 1
 	RefreshWorld()
+	GlobalScene.update_bgm()
 
 func RefreshWorld():
 	var i = 1
