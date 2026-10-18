@@ -6,10 +6,15 @@ export(Vector2) var force = Vector2(240, 0)
 export(Vector2) var destination = Vector2.ZERO
 export(String) var caption = ""
 export(float) var tide_period = 0.0
+# Existing world 2 areas keep their authored enter/exit signals and collision.
+export(bool) var external_force_control = false
 var collected = false
 var clock = 0.0
 
 func _ready():
+	if external_force_control:
+		z_index = -1
+		return
 	collision_layer = 0
 	collision_mask = 1
 	var collider = CollisionShape2D.new()
