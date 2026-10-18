@@ -149,6 +149,7 @@ joystickLeftPath = NodePath("../HUD/Joystick")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
+process_mode = 0
 smoothing_enabled = true
 
 [node name="HUD" type="CanvasLayer" parent="."]

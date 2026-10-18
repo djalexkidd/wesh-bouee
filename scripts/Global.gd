@@ -1,5 +1,9 @@
 extends Node
 
+const LEVELS_PER_WORLD = 8
+const WORLD_COUNT = 4
+const LEVEL_COUNT = LEVELS_PER_WORLD * WORLD_COUNT
+
 var lasttime = 0 #Dernier temps
 var level_time = {} #Meilleur temps sur les niveaux
 var level = 0 #Niveau actuel

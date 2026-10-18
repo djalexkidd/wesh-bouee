@@ -1,0 +1,246 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://assets/checkpoints/start/start2.png" type="Texture" id=1]
+[ext_resource path="res://scripts/RaceLevel.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/nokiafc22.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/backgrounds/pool.jpg" type="Texture" id=4]
+[ext_resource path="res://assets/checkpoints/start/start1.png" type="Texture" id=5]
+[ext_resource path="res://assets/checkpoints/goal/goal1.png" type="Texture" id=6]
+[ext_resource path="res://assets/checkpoints/start/start3.png" type="Texture" id=7]
+[ext_resource path="res://assets/tiles/tires_red.png" type="Texture" id=8]
+[ext_resource path="res://scripts/HUD.gd" type="Script" id=9]
+[ext_resource path="res://Joystick/A_button.png" type="Texture" id=10]
+[ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/checkpoints/goal/goal2.png" type="Texture" id=12]
+[ext_resource path="res://assets/checkpoints/goal/goal4.png" type="Texture" id=13]
+[ext_resource path="res://assets/checkpoints/goal/goal3.png" type="Texture" id=14]
+[ext_resource path="res://assets/checkpoints/start/start4.png" type="Texture" id=15]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/Boost.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scripts/RaceZone.gd" type="Script" id=18]
+[ext_resource path="res://scripts/RacePlayer.gd" type="Script" id=20]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 56, 56, 0, 56, 0, 0, 56, 0 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "tires_red.png 0"
+0/texture = ExtResource( 8 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 56, 56 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 232, 224 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="DynamicFont" id=10]
+size = 20
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.0705882, 0.768627, 0.0705882, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0, 0, 0, 0.219608 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=9]
+size = 32
+font_data = ExtResource( 3 )
+
+[node name="Level22" type="Node2D"]
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": "Vent de travers"
+}
+bronze_medal = 32.3
+silver_medal = 25.5
+gold_medal = 20.1
+author_medal = 17.0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 94, 94 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color( 0.65, 0.95, 0.9, 1 )
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 3008, 3008 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 2 )
+cell_size = Vector2( 56, 56 )
+cell_custom_transform = Transform2D( 56, 0, 0, 56, 0, 0 )
+collision_layer = 2
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( -1245155, 0, 0, -1245154, 0, 0, -1245153, 0, 0, -1245152, 0, 0, -1245151, 0, 0, -1245150, 0, 0, -1245149, 0, 0, -1245148, 0, 0, -1245147, 0, 0, -1245146, 0, 0, -1245145, 0, 0, -1245144, 0, 0, -1245143, 0, 0, -1245142, 0, 0, -1245141, 0, 0, -1245140, 0, 0, -1245139, 0, 0, -1179621, 0, 0, -1179620, 0, 0, -1179619, 0, 0, -1179603, 0, 0, -1179602, 0, 0, -1179601, 0, 0, -1114086, 0, 0, -1114085, 0, 0, -1114065, 0, 0, -1114064, 0, 0, -1048551, 0, 0, -1048550, 0, 0, -1048528, 0, 0, -1048527, 0, 0, -983016, 0, 0, -983015, 0, 0, -982991, 0, 0, -982990, 0, 0, -917481, 0, 0, -917480, 0, 0, -917454, 0, 0, -917453, 0, 0, -851946, 0, 0, -851945, 0, 0, -851917, 0, 0, -851916, 0, 0, -786411, 0, 0, -786410, 0, 0, -786380, 0, 0, -786379, 0, 0, -720876, 0, 0, -720875, 0, 0, -720843, 0, 0, -720842, 0, 0, -655341, 0, 0, -655340, 0, 0, -655306, 0, 0, -655305, 0, 0, -589806, 0, 0, -589805, 0, 0, -589793, 0, 0, -589792, 0, 0, -589791, 0, 0, -589790, 0, 0, -589789, 0, 0, -589788, 0, 0, -589787, 0, 0, -589786, 0, 0, -589785, 0, 0, -589784, 0, 0, -589783, 0, 0, -589782, 0, 0, -589781, 0, 0, -589769, 0, 0, -589768, 0, 0, -524271, 0, 0, -524270, 0, 0, -524258, 0, 0, -524257, 0, 0, -524245, 0, 0, -524244, 0, 0, -524232, 0, 0, -524231, 0, 0, -458736, 0, 0, -458735, 0, 0, -458723, 0, 0, -458722, 0, 0, -458708, 0, 0, -458707, 0, 0, -458695, 0, 0, -458694, 0, 0, -327686, 0, 0, -327685, 0, 0, -327684, 0, 0, -327683, 0, 0, -327682, 0, 0, -327681, 0, 0, -393216, 0, 0, -393215, 0, 0, -393214, 0, 0, -393213, 0, 0, -393212, 0, 0, -393211, 0, 0, -393210, 0, 0, -393201, 0, 0, -393200, 0, 0, -393188, 0, 0, -393187, 0, 0, -393171, 0, 0, -393170, 0, 0, -393158, 0, 0, -393157, 0, 0, -393146, 0, 0, -393145, 0, 0, -393144, 0, 0, -393143, 0, 0, -393142, 0, 0, -393141, 0, 0, -393140, 0, 0, -393139, 0, 0, -393138, 0, 0, -393137, 0, 0, -393136, 0, 0, -393135, 0, 0, -393134, 0, 0, -262150, 0, 0, -327674, 0, 0, -327666, 0, 0, -327665, 0, 0, -327653, 0, 0, -327652, 0, 0, -327634, 0, 0, -327633, 0, 0, -327621, 0, 0, -327620, 0, 0, -327610, 0, 0, -327598, 0, 0, -196614, 0, 0, -262138, 0, 0, -262137, 0, 0, -262136, 0, 0, -262135, 0, 0, -262134, 0, 0, -262133, 0, 0, -262132, 0, 0, -262131, 0, 0, -262130, 0, 0, -262118, 0, 0, -262117, 0, 0, -262097, 0, 0, -262096, 0, 0, -262084, 0, 0, -262083, 0, 0, -262082, 0, 0, -262081, 0, 0, -262080, 0, 0, -262079, 0, 0, -262078, 0, 0, -262077, 0, 0, -262076, 0, 0, -262075, 0, 0, -262074, 0, 0, -262062, 0, 0, -131078, 0, 0, -196583, 0, 0, -196582, 0, 0, -196560, 0, 0, -196559, 0, 0, -196526, 0, 0, -65542, 0, 0, -131048, 0, 0, -131047, 0, 0, -131023, 0, 0, -131022, 0, 0, -130990, 0, 0, -6, 0, 0, -65513, 0, 0, -65512, 0, 0, -65486, 0, 0, -65485, 0, 0, -65454, 0, 0, 65530, 0, 0, 22, 0, 0, 23, 0, 0, 51, 0, 0, 52, 0, 0, 82, 0, 0, 131066, 0, 0, 65558, 0, 0, 65588, 0, 0, 65589, 0, 0, 65618, 0, 0, 196602, 0, 0, 131094, 0, 0, 131095, 0, 0, 131125, 0, 0, 131126, 0, 0, 131154, 0, 0, 262138, 0, 0, 196631, 0, 0, 196632, 0, 0, 196661, 0, 0, 196662, 0, 0, 196690, 0, 0, 327674, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262168, 0, 0, 262169, 0, 0, 262197, 0, 0, 262205, 0, 0, 262206, 0, 0, 262207, 0, 0, 262208, 0, 0, 262209, 0, 0, 262210, 0, 0, 262211, 0, 0, 262212, 0, 0, 262213, 0, 0, 262214, 0, 0, 262226, 0, 0, 393210, 0, 0, 327686, 0, 0, 327695, 0, 0, 327696, 0, 0, 327705, 0, 0, 327706, 0, 0, 327733, 0, 0, 327740, 0, 0, 327741, 0, 0, 327750, 0, 0, 327762, 0, 0, 458746, 0, 0, 458747, 0, 0, 458748, 0, 0, 458749, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393232, 0, 0, 393233, 0, 0, 393242, 0, 0, 393243, 0, 0, 393269, 0, 0, 393276, 0, 0, 393286, 0, 0, 393287, 0, 0, 393288, 0, 0, 393289, 0, 0, 393290, 0, 0, 393291, 0, 0, 393292, 0, 0, 393293, 0, 0, 393294, 0, 0, 393295, 0, 0, 393296, 0, 0, 393297, 0, 0, 393298, 0, 0, 458769, 0, 0, 458770, 0, 0, 458779, 0, 0, 458780, 0, 0, 458804, 0, 0, 458805, 0, 0, 458812, 0, 0, 524306, 0, 0, 524307, 0, 0, 524316, 0, 0, 524317, 0, 0, 524340, 0, 0, 524347, 0, 0, 524348, 0, 0, 589843, 0, 0, 589844, 0, 0, 589853, 0, 0, 589854, 0, 0, 589876, 0, 0, 589883, 0, 0, 655380, 0, 0, 655381, 0, 0, 655390, 0, 0, 655391, 0, 0, 655411, 0, 0, 655412, 0, 0, 655419, 0, 0, 720917, 0, 0, 720918, 0, 0, 720927, 0, 0, 720928, 0, 0, 720929, 0, 0, 720930, 0, 0, 720931, 0, 0, 720932, 0, 0, 720933, 0, 0, 720934, 0, 0, 720935, 0, 0, 720936, 0, 0, 720937, 0, 0, 720938, 0, 0, 720939, 0, 0, 720940, 0, 0, 720941, 0, 0, 720942, 0, 0, 720943, 0, 0, 720944, 0, 0, 720945, 0, 0, 720946, 0, 0, 720947, 0, 0, 720955, 0, 0, 786454, 0, 0, 786455, 0, 0, 786490, 0, 0, 786491, 0, 0, 851991, 0, 0, 851992, 0, 0, 852026, 0, 0, 917528, 0, 0, 917562, 0, 0, 983064, 0, 0, 983065, 0, 0, 983098, 0, 0, 1048601, 0, 0, 1048602, 0, 0, 1048633, 0, 0, 1048634, 0, 0, 1114138, 0, 0, 1114139, 0, 0, 1114169, 0, 0, 1179675, 0, 0, 1179676, 0, 0, 1179677, 0, 0, 1179703, 0, 0, 1179704, 0, 0, 1179705, 0, 0, 1245213, 0, 0, 1245214, 0, 0, 1245215, 0, 0, 1245216, 0, 0, 1245217, 0, 0, 1245218, 0, 0, 1245219, 0, 0, 1245220, 0, 0, 1245221, 0, 0, 1245222, 0, 0, 1245223, 0, 0, 1245224, 0, 0, 1245225, 0, 0, 1245226, 0, 0, 1245227, 0, 0, 1245228, 0, 0, 1245229, 0, 0, 1245230, 0, 0, 1245231, 0, 0, 1245232, 0, 0, 1245233, 0, 0, 1245234, 0, 0, 1245235, 0, 0, 1245236, 0, 0, 1245237, 0, 0, 1245238, 0, 0, 1245239, 0, 0 )
+
+[node name="Start" type="Area2D" parent="."]
+position = Vector2( 28, 28 )
+collision_layer = 4
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start"]
+position = Vector2( 8, 0 )
+shape = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Start"]
+position = Vector2( 7.99997, -5.96046e-06 )
+scale = Vector2( 4.83333, 4.66667 )
+frames = SubResource( 4 )
+playing = true
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2( 4284, 28 )
+collision_layer = 4
+collision_mask = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+position = Vector2( 8, 0 )
+shape = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Goal"]
+position = Vector2( 7.99997, 3.8147e-05 )
+scale = Vector2( 4.83333, 4.66667 )
+frames = SubResource( 5 )
+playing = true
+
+[node name="Boost1" parent="." instance=ExtResource( 17 )]
+position = Vector2( 2212, 868 )
+
+[node name="Zone1" type="Area2D" parent="."]
+position = Vector2( 1372, -420 )
+script = ExtResource( 18 )
+force = Vector2( 0, 240 )
+
+[node name="Zone2" type="Area2D" parent="."]
+position = Vector2( 2100, -756 )
+script = ExtResource( 18 )
+half_size = Vector2( 336, 168 )
+force = Vector2( -170, 0 )
+
+[node name="Zone3" type="Area2D" parent="."]
+position = Vector2( 2828, -420 )
+script = ExtResource( 18 )
+force = Vector2( 0, -240 )
+
+[node name="Player" parent="." instance=ExtResource( 16 )]
+position = Vector2( 28, 28 )
+script = ExtResource( 20 )
+joystickLeftPath = NodePath("../HUD/Joystick")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+process_mode = 0
+smoothing_enabled = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource( 9 )
+
+[node name="BuoyCount" type="Label" parent="HUD"]
+margin_left = 20.0
+margin_top = 24.0
+custom_fonts/font = SubResource( 10 )
+
+[node name="ProgressBar" type="ProgressBar" parent="HUD"]
+anchor_right = 1.0
+margin_bottom = 14.0
+custom_styles/fg = SubResource( 6 )
+custom_styles/bg = SubResource( 7 )
+step = 1.0
+value = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="HUD"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -92.0
+margin_top = -72.0
+margin_right = 92.0
+custom_styles/panel = SubResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="HUD"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -80.0
+margin_top = -56.0
+margin_right = -56.0
+margin_bottom = -16.0
+custom_fonts/font = SubResource( 9 )
+text = "#"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Joystick" parent="HUD" instance=ExtResource( 11 )]
+dead_zone = 0.2
+visibility_mode = 1
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="HUD"]
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 1056, 496 )
+scale = Vector2( 1.70079, 1.66154 )
+normal = ExtResource( 10 )
+action = "run"
+visibility_mode = 1
+
+[connection signal="body_exited" from="Start" to="Player" method="_on_Start_body_exited"]
+[connection signal="body_entered" from="Goal" to="Player" method="_on_Goal_body_entered"]
+[connection signal="body_entered" from="Boost1" to="Player" method="_on_Boost_body_entered"]
+[connection signal="bar" from="Player" to="HUD" method="_on_Player_bar"]
+[connection signal="stopwatch" from="Player" to="." method="_on_Player_stopwatch"]
+[connection signal="stopwatch" from="Player" to="HUD" method="_on_Player_stopwatch"]

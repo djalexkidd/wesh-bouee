@@ -1,7 +1,5 @@
 extends Control
 
-const nbr_levels = 16
-
 func _ready():
 	load_highscore()
 
@@ -15,49 +13,22 @@ func _on_QuitButton_pressed(): #Bouton pour quitter le jeu
 #Sous GNU/Linux le fichier se situe dans /home/$USER/.local/share/godot/app_userdata/Wesh Bouée/
 func load_highscore():
 	var config = ConfigFile.new()
-	var file2Check = File.new()
-	if not file2Check.file_exists("user://scores.cfg"):
-		for n in nbr_levels:
-			config.set_value("Scores", var2str(n), "999.999")
-			Global.level_time[n] = "999.999"
-			
-			config.set_value("Bronze Medals", var2str(n), "false")
-			Global.bronze_medals_owned[n] = "false"
-			
-			config.set_value("Silver Medals", var2str(n), "false")
-			Global.silver_medals_owned[n] = "false"
-			
-			config.set_value("Gold Medals", var2str(n), "false")
-			Global.gold_medals_owned[n] = "false"
-			
-			config.set_value("Author Medals", var2str(n), "false")
-			Global.author_medals_owned[n] = "false"
-		config.save("user://scores.cfg")
-		return
-	
 	config.load("user://scores.cfg")
-	
-	for n in config.get_sections():
-		if n == "Scores":
-			for score in nbr_levels:
-				var level_score = config.get_value(n, var2str(score))
-				Global.level_time[score] = level_score
-		elif n == "Bronze Medals":
-			for bronze in nbr_levels:
-				var bmedal = config.get_value(n, var2str(bronze))
-				Global.bronze_medals_owned[bronze] = bmedal
-		elif n == "Silver Medals":
-			for silver in nbr_levels:
-				var smedal = config.get_value(n, var2str(silver))
-				Global.silver_medals_owned[silver] = smedal
-		elif n == "Gold Medals":
-			for gold in nbr_levels:
-				var gmedal = config.get_value(n, var2str(gold))
-				Global.gold_medals_owned[gold] = gmedal
-		elif n == "Author Medals":
-			for author in nbr_levels:
-				var amedal = config.get_value(n, var2str(author))
-				Global.author_medals_owned[author] = amedal
+	# Les anciennes sauvegardes contiennent seulement les 16 premiers niveaux.
+	# Compléter les entrées manquantes sans écraser les records existants.
+	for n in Global.LEVEL_COUNT:
+		var key = var2str(n)
+		Global.level_time[n] = config.get_value("Scores", key, "999.999")
+		Global.bronze_medals_owned[n] = config.get_value("Bronze Medals", key, "false")
+		Global.silver_medals_owned[n] = config.get_value("Silver Medals", key, "false")
+		Global.gold_medals_owned[n] = config.get_value("Gold Medals", key, "false")
+		Global.author_medals_owned[n] = config.get_value("Author Medals", key, "false")
+		config.set_value("Scores", key, Global.level_time[n])
+		config.set_value("Bronze Medals", key, Global.bronze_medals_owned[n])
+		config.set_value("Silver Medals", key, Global.silver_medals_owned[n])
+		config.set_value("Gold Medals", key, Global.gold_medals_owned[n])
+		config.set_value("Author Medals", key, Global.author_medals_owned[n])
+	config.save("user://scores.cfg")
 
 func _on_SettingsButton_pressed():
 	get_tree().change_scene("res://scenes/Settings.tscn")
