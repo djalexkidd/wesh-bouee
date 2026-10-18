@@ -3,10 +3,11 @@ extends Control
 var reset = 11
 
 func _ready():
-	if OS.get_name() == "Android":
+	if Global.is_android():
 		$SettingsContainer/FullScreenButton.disabled = true
 	else:
 		$SettingsContainer/MiuiFixButton.disabled = true
+		$SettingsContainer/GyroscopeButton.disabled = true
 
 	
 	if OS.window_fullscreen:
@@ -18,6 +19,14 @@ func _ready():
 		$SettingsContainer/MiuiFixButton.text = "SETTINGS_ENABLED"
 	else:
 		$SettingsContainer/MiuiFixButton.text = "SETTINGS_DISABLED"
+
+	$SettingsContainer/GyroscopeButton.text = "SETTINGS_ENABLED" if Global.is_gyroscope_active() else "SETTINGS_DISABLED"
+
+func _on_GyroscopeButton_pressed():
+	if not Global.is_android():
+		return
+	Global.set_gyroscope_enabled(not Global.gyroscope_enabled)
+	$SettingsContainer/GyroscopeButton.text = "SETTINGS_ENABLED" if Global.is_gyroscope_active() else "SETTINGS_DISABLED"
 
 #Active/Désactive le plein écran
 func _on_FullScreenButton_pressed():

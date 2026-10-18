@@ -90,6 +90,18 @@ custom_fonts/font = SubResource( 4 )
 custom_styles/focus = SubResource( 3 )
 text = "SETTINGS_DISABLED"
 
+[node name="GyroscopeLabel" type="Label" parent="SettingsContainer"]
+custom_fonts/font = SubResource( 6 )
+text = "SETTINGS_GYROSCOPE"
+
+[node name="GyroscopeButton" type="Button" parent="SettingsContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color_hover = Color( 1, 1, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/focus = SubResource( 3 )
+text = "SETTINGS_DISABLED"
+
 [node name="ResetContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -127,3 +139,5 @@ align = 0
 [connection signal="pressed" from="SettingsContainer/MiuiFixButton" to="." method="_on_MiuiFixButton_pressed"]
 [connection signal="pressed" from="ResetContainer/ResetButton" to="." method="_on_ResetButton_pressed"]
 [connection signal="pressed" from="ReturnButton" to="." method="_on_ReturnButton_pressed"]
+
+[connection signal="pressed" from="SettingsContainer/GyroscopeButton" to="." method="_on_GyroscopeButton_pressed"]

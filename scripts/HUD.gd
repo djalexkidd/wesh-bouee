@@ -4,8 +4,9 @@ var time = 0
 var running
 
 func _ready():
-	if Input.get_joy_name(0) and !Global.ForceTouchScreen:
+	if Global.is_gyroscope_active() or (Input.get_joy_name(0) and !Global.ForceTouchScreen):
 		$Joystick.hide()
+		$Joystick.set_process_input(false)
 		$TouchScreenButton.hide()
 
 func _process(delta):

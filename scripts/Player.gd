@@ -10,6 +10,7 @@ var gravity_enabled
 var GRAVITY = 500
 var rotate_speed = 0.01
 var control = true
+var gyro_motion = preload("res://scripts/GyroMotion.gd").new()
 signal bar
 signal stopwatch
 
@@ -42,14 +43,18 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("exit"):
 		get_tree().change_scene("res://scenes/LevelSelect.tscn")
 	
-	if joystickLeft and joystickLeft.is_working and control:
+	if not Global.is_gyroscope_active() and joystickLeft and joystickLeft.is_working and control:
 		var _velocity = move_and_slide(joystickLeft.output * SPEED)
 	
+	if Global.is_gyroscope_active():
+		velocity = gyro_motion.step(Input.get_accelerometer(), delta, boosted == true)
 	if gravity_enabled:
 		velocity.y = velocity.y + GRAVITY
 	
 	if control:
 		velocity = move_and_slide(velocity)
+		if Global.is_gyroscope_active():
+			gyro_motion.velocity = velocity - (Vector2(0, GRAVITY) if gravity_enabled else Vector2.ZERO)
 
 	$Sprite.rotate(rotate_speed) #Fait tourner le sprite du joueur
 	

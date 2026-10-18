@@ -10,6 +10,7 @@ var gravity_enabled
 var GRAVITY = 500
 var rotate_speed = 0.01
 var control = true
+var gyro_motion = preload("res://scripts/GyroMotion.gd").new()
 signal bar
 signal stopwatch
 
@@ -49,13 +50,18 @@ func _physics_process(delta):
 				on_ice = true
 			"brake":
 				braking = true
-	var slow = Input.is_action_pressed("run")
+	var gyro = Global.is_gyroscope_active()
+	var slow = not gyro and Input.is_action_pressed("run")
 	SPEED = 720 if boosted else (180 if slow else 360)
 	if on_ice and slow:
 		SPEED = 180
 	if braking:
 		SPEED = 200
 	var target = movedir * SPEED
+	if gyro:
+		target = gyro_motion.step(Input.get_accelerometer(), delta, boosted == true)
+		if braking:
+			target = target.clamped(SPEED)
 	if on_ice and not braking:
 		drift = drift.move_toward(target, (1000.0 if slow else 230.0) * delta)
 	else:
@@ -66,6 +72,8 @@ func _physics_process(delta):
 	var actual = move_and_slide(velocity)
 	# Do not keep accumulating momentum into a wall on ice.
 	drift = actual - current
+	if gyro:
+		gyro_motion.velocity = drift - (Vector2(0, GRAVITY) if gravity_enabled else Vector2.ZERO)
 	hurt = start and $hitbox.get_overlapping_bodies().size() > 0
 	if hurt:
 		health = max(0, health - 2)
@@ -82,6 +90,7 @@ func enter_terrain(zone):
 		boosted = false
 		$BoostTimer.stop()
 		drift *= 0.35
+		gyro_motion.velocity *= 0.35
 
 func exit_terrain(zone):
 	terrain.erase(zone.get_instance_id())
@@ -92,6 +101,7 @@ func teleport_to(destination):
 	portal_cooldown = 0.8
 	global_position = destination
 	drift = Vector2.ZERO
+	gyro_motion.velocity = Vector2.ZERO
 	terrain.clear()
 	# Rebuild areas after the physics server updates the new position.
 	call_deferred("refresh_terrain")
